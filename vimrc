@@ -131,9 +131,7 @@ nnoremap <leader>p "+p
 
 " map ESC
 " defautl is normal map
-inoremap <leader><leader> <esc>
-noremap <leader><leader> <esc>
-noremap <leader>w :w<cr>
+inoremap jk <esc>
 inoremap <leader>w <esc>:w<cr>
 " disable old esc
 " other is <c-c>

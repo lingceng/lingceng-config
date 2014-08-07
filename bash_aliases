@@ -16,4 +16,11 @@ alias rc='rails console'
 alias rs2='rails server --port=3002'
 
 alias wg="bundle show"
-alias rdm = "rake db:migrate"
+alias rdm="rake db:migrate"
+
+# git checkout branch
+function git-cb {
+    # replace space to -
+    echo "${1// /-}" | xargs -L1 git checkout -b
+}
+
