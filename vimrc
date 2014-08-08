@@ -32,7 +32,18 @@ Plugin 'tpope/vim-rails.git'
 "
 " code snipe
 "
-Plugin 'snipMate'
+" Plugin 'snipMate'
+
+" https://github.com/sirver/ultisnips
+" Plugin 'SirVer/ultisnips'
+
+" https://github.com/garbas/vim-snipmate
+Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'tomtom/tlib_vim'
+Plugin 'garbas/vim-snipmate'
+
+" Snippets are separated from the engine. Add this if you want them:
+Plugin 'honza/vim-snippets'
 
 "
 " tree navigate
