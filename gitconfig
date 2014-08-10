@@ -13,3 +13,5 @@
   ps = push origin
 [core]
   editor = vim
+[color]
+	ui = true

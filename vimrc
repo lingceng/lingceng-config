@@ -29,21 +29,33 @@ Plugin 'kien/ctrlp.vim'
 "
 Plugin 'tpope/vim-rails.git'
 
-"
+" snipMate Version
 " code snipe
 "
 " Plugin 'snipMate'
 
+" ultisnips Version {{{
 " https://github.com/sirver/ultisnips
-" Plugin 'SirVer/ultisnips'
+" help UltiSnip
+" :UltiSnipsEdit
+"
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
 
+" }}}
+
+" vim-snipmate version {{{
 " https://github.com/garbas/vim-snipmate
-Plugin 'MarcWeber/vim-addon-mw-utils'
-Plugin 'tomtom/tlib_vim'
-Plugin 'garbas/vim-snipmate'
+" Plugin 'MarcWeber/vim-addon-mw-utils'
+" Plugin 'tomtom/tlib_vim'
+" Plugin 'garbas/vim-snipmate'
 
 " Snippets are separated from the engine. Add this if you want them:
-Plugin 'honza/vim-snippets'
+" Plugin 'honza/vim-snippets'
+" }}}
+
+" status line
+Plugin 'bling/vim-airline'
 
 "
 " tree navigate
@@ -152,6 +164,10 @@ inoremap <esc> <nop>
 " | is chain to run command
 nnoremap <leader>r 0v$:w! /tmp/vim.rb \| !irb /tmp/vim.rb<cr>
 
+" in vim version
+" nnoremap <leader>r 0v$:w! /tmp/vim.rb \| :botright new /tmp/vim_ruby_result \
+"      \| :r !irb /tmp/vim.rb<cr>
+
 " run selected content in ruby
 "vmap ,r y:!ruby -we '<c-r>"'
 vnoremap <leader>r :w! /tmp/vim.rb \| !irb /tmp/vim.rb<cr>
@@ -211,11 +227,13 @@ nnoremap <silent> <A-Left> :execute 'silent! tabmove ' . (tabpagenr()-2)<CR>
 nnoremap <silent> <A-Right> :execute 'silent! tabmove ' . tabpagenr()<CR>
 
 
+
 " custom statusline
+" use *airline* instead
 " help statusline
-hi User1 ctermbg=darkblue guibg=dardblue
+" hi User1 ctermbg=darkblue guibg=dardblue
 set laststatus=2
-set statusline=%<%f\ %h%m%r%=%1*%y%*\ ts:%{&tabstop}\ %-14.(%l/%L,%c%)\ %P
+" set statusline=%<%f\ %h%m%r%=%1*%y%*\ ts:%{&tabstop}\ %-14.(%l/%L,%c%)\ %P
 
 
 
@@ -233,6 +251,9 @@ augroup filetype_ruby
 
   " run current file
   autocmd Filetype ruby nnoremap <buffer> <leader>mr :w<cr>:!irb %\<cr>
+
+  " see ri doc
+  autocmd Filetype ruby nnoremap <buffer> <leader>h :!ri <cword>\<cr>
 
 augroup END
 " }}}
