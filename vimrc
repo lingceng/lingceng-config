@@ -200,13 +200,16 @@ nnoremap <leader>mj <c-w>j:q<cr>
 nnoremap <leader>ml <c-w>l:q<cr>
 
 " map tails whitspace and tabs as error
-"nnoremap <leader>w :match Error /\s+$/<cr>
-"nnoremap <leader>W :match none<cr>
+nnoremap <leader>w :match Error /\s+$/<cr>
+nnoremap <leader>W :match none<cr>
 " clear ending white space
-nnoremap <leader>cw :%s/\v\s+$//g<cr>
+nnoremap <leader>cw :%s/\v\s+$//e<cr>
 " warn tailing whitespace and tabs
 match Error /\v\s+$|\t/
 " use :retab to repace tabs to space
+
+" clear tailing whitespace before save
+autocmd BufWritePre * :silent %s/\v\s+$//e
 
 " use plugin instead
 " grep
