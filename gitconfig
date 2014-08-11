@@ -1,8 +1,6 @@
 [user]
   name = zhongkx
   email = zhongkx@reocar.com
-[push]
-  default = simple
 [alias]
   st = status
   ci = commit
@@ -15,3 +13,5 @@
   ps = push origin
 [core]
   editor = vim
+[color]
+	ui = true
