@@ -200,12 +200,12 @@ nnoremap <leader>mj <c-w>j:q<cr>
 nnoremap <leader>ml <c-w>l:q<cr>
 
 " map tails whitspace and tabs as error
-nnoremap <leader>w :match Error /\s+$/<cr>
+nnoremap <leader>w :match Error /\s\+$/<cr>
 nnoremap <leader>W :match none<cr>
 " clear ending white space
 nnoremap <leader>cw :%s/\v\s+$//e<cr>
 " warn tailing whitespace and tabs
-match Error /\v\s+$|\t/
+autocmd BufRead * match Error /\v\s+$|\t/
 " use :retab to repace tabs to space
 
 " clear tailing whitespace before save
@@ -245,6 +245,11 @@ set laststatus=2
 set textwidth=80
 set colorcolumn=+1
 hi ColorColumn ctermbg=lightgrey guibg=lightgrey
+
+" local cd to current folder
+nnoremap <leader>cd :lcd %:p:h<cr>
+
+vnoremap <leader>hu y:!firefox https://github.com/<c-r>"<cr>
 
 " }}}
 

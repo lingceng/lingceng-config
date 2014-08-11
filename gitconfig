@@ -11,7 +11,8 @@
   dc = diff --cached --
   pl = pull origin
   ps = push origin
+  brename = branch -m
 [core]
   editor = vim
 [color]
-	ui = true
+  ui = true
