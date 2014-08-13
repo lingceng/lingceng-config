@@ -77,6 +77,14 @@ Plugin 'airblade/vim-gitgutter'
 "  redcarpet          for markdown preview
 Plugin 'greyblake/vim-preview'
 
+
+"
+" replace similar words in once
+"  /\cgoodday
+"  :%SmartCase "HelloWorld"
+"
+Plugin 'SmartCase'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 
@@ -205,7 +213,7 @@ nnoremap <leader>W :match none<cr>
 " clear ending white space
 nnoremap <leader>cw :%s/\v\s+$//e<cr>
 " warn tailing whitespace and tabs
-autocmd BufRead * match Error /\v\s+$|\t/
+autocmd BufRead * match Error /\v\s+$/
 " use :retab to repace tabs to space
 
 " clear tailing whitespace before save

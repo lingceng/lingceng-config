@@ -14,6 +14,7 @@ alias gd='git diff'
 alias rs='rails server'
 alias rc='rails console'
 alias rs2='rails server --port=3002'
+alias rgm='rails generate migration'
 
 alias wg="bundle show"
 alias rdm="rake db:migrate"
