@@ -85,6 +85,12 @@ Plugin 'greyblake/vim-preview'
 "
 Plugin 'SmartCase'
 
+
+" git handle
+" Gedit edit file in index
+" Gdiff compare with index
+Plugin 'fugitive.vim'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 
