@@ -42,6 +42,12 @@ Plugin 'tpope/vim-rails.git'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+
+
+
 " }}}
 
 " vim-snipmate version {{{
@@ -160,6 +166,11 @@ set dictionary+=~/.vim/dict/*.10
 nnoremap <leader>e y$:!<c-r>"
 vnoremap <leader>e y:!<c-r>"
 
+" run current to end in shell
+nnoremap <leader>x y$:@"<cr>
+vnoremap <leader>x y:@"<cr>
+
+
 " copy to clipboard
 " ^ first non-blank character
 nnoremap <leader>y "+y$
@@ -220,6 +231,7 @@ nnoremap <leader>W :match none<cr>
 nnoremap <leader>cw :%s/\v\s+$//e<cr>
 " warn tailing whitespace and tabs
 autocmd BufRead * match Error /\v\s+$/
+match Error /\v\s+$/
 " use :retab to repace tabs to space
 
 " clear tailing whitespace before save
