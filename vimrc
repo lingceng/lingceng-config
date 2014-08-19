@@ -277,6 +277,25 @@ nnoremap <leader>cd :lcd %:p:h<cr>
 
 vnoremap <leader>hu y:!firefox https://github.com/<c-r>"<cr>
 
+" toggle quickfix window
+nnoremap <leader>q :call QuickfixToggle()<cr>
+
+let g:quickfix_is_open = 0
+
+" ! means silent replace exist function
+function! QuickfixToggle()
+  if g:quickfix_is_open
+    cclose
+    let g:quickfix_is_open = 0
+    " restore window
+    execute g:quickfix_return_to_window . 'wincmd w'
+  else
+    let g:quickfix_return_to_window = winnr()
+    copen
+    let g:quickfix_is_open = 1
+  endif
+endfunction
+
 " }}}
 
 " eruby file setting ---------------- {{{
