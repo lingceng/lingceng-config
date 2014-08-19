@@ -97,6 +97,25 @@ Plugin 'SmartCase'
 " Gdiff compare with index
 Plugin 'fugitive.vim'
 
+"
+" Want to turn fooBar into foo_bar? Press crs (coerce to snake_case).
+"
+" MixedCase " (crm), camelCase (crc), snake_case (crs), and UPPER_CASE (cru)
+" support by repeat.vim
+Plugin 'abolish.vim'
+
+" repeat support for abolish.vim
+Plugin 'repeat.vim'
+
+
+" https://github.com/tpope/vim-surround
+" ds to delete surround
+" cs to change surround
+" ys to add surround
+" support by repeat.vim
+Plugin 'surround.vim'
+
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 
@@ -150,7 +169,7 @@ set completefunc=syntaxcomplete#Complete
 
 
 " set autoindent
-set autoindent
+" set autoindent
 
 " case sensitive when capital character exists
 set smartcase
@@ -220,7 +239,7 @@ inoreabbrev enc  encoding: utf-8
 
 " merge window
 nnoremap <leader>mk <c-w>k:q<cr>
-nnoremap <leader>mh <c-w>k:q<cr>
+nnoremap <leader>mh <c-w>h:q<cr>
 nnoremap <leader>mj <c-w>j:q<cr>
 nnoremap <leader>ml <c-w>l:q<cr>
 
@@ -254,6 +273,11 @@ nnoremap <C-Left> :tabprevious<CR>
 nnoremap <C-Right> :tabnext<CR>
 nnoremap <silent> <A-Left> :execute 'silent! tabmove ' . (tabpagenr()-2)<CR>
 nnoremap <silent> <A-Right> :execute 'silent! tabmove ' . tabpagenr()<CR>
+nnoremap <leader>1 :tabnext 1<cr>
+nnoremap <leader>2 :tabnext 2<cr>
+nnoremap <leader>3 :tabnext 3<cr>
+nnoremap <leader>4 :tabnext 4<cr>
+
 
 
 
