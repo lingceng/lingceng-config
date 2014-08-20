@@ -45,6 +45,7 @@ Plugin 'honza/vim-snippets'
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+let g:UltiSnipsEditSplit="vertical"
 
 
 
@@ -61,7 +62,10 @@ let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 " }}}
 
 " status line
+let g:airline#extensions#branch#enabled = 1
 Plugin 'bling/vim-airline'
+
+
 
 "
 " tree navigate
@@ -161,12 +165,17 @@ set backspace=2
 
 " set tempfile swpfile path
 set dir=/tmp
+
+" open back up
+set backup
 set backupdir=/tmp
 
 " for ruby syntax of minitest
 " i_CTRL-X_CTRL-U to trigger in ruby file
 set completefunc=syntaxcomplete#Complete
 
+" enable mouse and shirt select option
+behave mswin
 
 " set autoindent
 " set autoindent
@@ -288,6 +297,11 @@ nnoremap <leader>4 :tabnext 4<cr>
 set laststatus=2
 " set statusline=%<%f\ %h%m%r%=%1*%y%*\ ts:%{&tabstop}\ %-14.(%l/%L,%c%)\ %P
 
+" set theme for airline
+nnoremap <leader>th :AirlineTheme hybrid<cr>
+
+" show line number
+set number
 
 
 " highlight overflow 80
@@ -300,25 +314,6 @@ hi ColorColumn ctermbg=lightgrey guibg=lightgrey
 nnoremap <leader>cd :lcd %:p:h<cr>
 
 vnoremap <leader>hu y:!firefox https://github.com/<c-r>"<cr>
-
-" toggle quickfix window
-nnoremap <leader>q :call QuickfixToggle()<cr>
-
-let g:quickfix_is_open = 0
-
-" ! means silent replace exist function
-function! QuickfixToggle()
-  if g:quickfix_is_open
-    cclose
-    let g:quickfix_is_open = 0
-    " restore window
-    execute g:quickfix_return_to_window . 'wincmd w'
-  else
-    let g:quickfix_return_to_window = winnr()
-    copen
-    let g:quickfix_is_open = 1
-  endif
-endfunction
 
 " }}}
 

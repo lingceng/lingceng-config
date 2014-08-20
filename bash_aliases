@@ -19,6 +19,8 @@ alias rgm='rails generate migration'
 alias wg="bundle show"
 alias rdm="rake db:migrate"
 
+alias apush="git commit -a -m 'dococument' &&  git push origin master"
+
 # git checkout branch
 function git-cb {
     # replace space to -
