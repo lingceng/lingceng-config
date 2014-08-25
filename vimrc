@@ -47,6 +47,7 @@ let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 let g:UltiSnipsEditSplit="vertical"
 
+nnoremap <leader>sn :tabe ~/.vim/bundle/vim-snippets/UltiSnips/<cr>
 
 
 " }}}
@@ -175,7 +176,7 @@ set backupdir=/tmp
 set completefunc=syntaxcomplete#Complete
 
 " enable mouse and shirt select option
-behave mswin
+" behave mswin
 
 " set autoindent
 " set autoindent
