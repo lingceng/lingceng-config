@@ -17,7 +17,8 @@ alias rs2='rails server --port=3002'
 alias rgm='rails generate migration'
 
 alias wg="bundle show"
-alias rdm="rake db:migrate"
+alias rdm="rake db:migrate  RAILS_ENV=development"
+alias rds="rake db:setup  RAILS_ENV=development"
 
 alias apush="git commit -a -m 'dococument' &&  git push origin master"
 
