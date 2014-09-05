@@ -165,11 +165,11 @@ set backspace=2
 " }}}
 
 " set tempfile swpfile path
-set dir=/tmp
+" set dir=/tmp
 
 " open back up
 set backup
-set backupdir=/tmp
+" set backupdir=/tmp
 
 " for ruby syntax of minitest
 " i_CTRL-X_CTRL-U to trigger in ruby file

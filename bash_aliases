@@ -4,7 +4,6 @@
 # fi
 
 # git alias
-alias g='git'
 alias gs='git status'
 alias ga='git add'
 alias gb='git branch'
@@ -19,6 +18,7 @@ alias rgm='rails generate migration'
 alias wg="bundle show"
 alias rdm="rake db:migrate  RAILS_ENV=development"
 alias rds="rake db:setup  RAILS_ENV=development"
+alias bi="bundle install"
 
 alias apush="git commit -a -m 'dococument' &&  git push origin master"
 
@@ -33,5 +33,12 @@ function vga1400 {
     xrandr --addmode VGA1 1440x900
     xrandr --output VGA1 --mode 1440x900
 }
+
+function vga1920 {
+    xrandr --newmode "1920x1080_60.00"  173.00  1920 2048 2248 2576  1080 1083 1088 1120 -hsync +vsync
+    xrandr --addmode VGA1 1920x1080_60.00
+    xrandr --output VGA1 --mode 1920x1080_60.00
+}
+
 
 
