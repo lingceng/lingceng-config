@@ -120,6 +120,9 @@ Plugin 'repeat.vim'
 " support by repeat.vim
 Plugin 'surround.vim'
 
+" for markdown
+"Plugin 'godlygeek/tabular'
+"Plugin 'plasticboy/vim-markdown'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -315,6 +318,9 @@ hi ColorColumn ctermbg=lightgrey guibg=lightgrey
 nnoremap <leader>cd :lcd %:p:h<cr>
 
 vnoremap <leader>hu y:!firefox https://github.com/<c-r>"<cr>
+
+" ri current word
+nnoremap <leader>ri :!ri <cword><cr>
 
 " }}}
 
