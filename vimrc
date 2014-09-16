@@ -63,10 +63,8 @@ nnoremap <leader>sn :tabe ~/.vim/bundle/vim-snippets/UltiSnips/<cr>
 " }}}
 
 " status line
-let g:airline#extensions#branch#enabled = 1
-Plugin 'bling/vim-airline'
-
-
+"let g:airline#extensions#branch#enabled = 1
+"lugin 'bling/vim-airline'
 
 "
 " tree navigate
@@ -255,6 +253,11 @@ nnoremap <leader>mk <c-w>k:q<cr>
 nnoremap <leader>mh <c-w>h:q<cr>
 nnoremap <leader>mj <c-w>j:q<cr>
 nnoremap <leader>ml <c-w>l:q<cr>
+" Move window
+nnoremap <leader>k <c-w>k<cr>
+nnoremap <leader>h <c-w>h<cr>
+nnoremap <leader>j <c-w>j<cr>
+nnoremap <leader>l <c-w>l<cr>
 
 " map tails whitspace and tabs as error
 nnoremap <leader>w :match Error /\s\+$/<cr>
@@ -291,9 +294,6 @@ nnoremap <leader>2 :tabnext 2<cr>
 nnoremap <leader>3 :tabnext 3<cr>
 nnoremap <leader>4 :tabnext 4<cr>
 
-
-
-
 " custom statusline
 " use *airline* instead
 " help statusline
@@ -305,8 +305,7 @@ set laststatus=2
 nnoremap <leader>th :AirlineTheme hybrid<cr>
 
 " show line number
-set number
-
+" set number
 
 " highlight overflow 80
 " http://stackoverflow.com/questions/2447109/showing-a-different-background-colour-in-vim-past-80-characters
@@ -358,10 +357,10 @@ augroup filetype_eruby
 
   " 'foldlevel' 'fdl' number (default: 0)
   " Sets the fold level: Folds with a higher level will be closed.
-  autocmd FileType xhtml,html,eruby setlocal foldlevel=2
+  autocmd FileType xhtml,html,eruby setlocal foldlevel=3
 
   " 'foldminlines' 'fml'  number (default: 1)
-  autocmd FileType xhtml,html,eruby setlocal foldminlines=20
+  autocmd FileType xhtml,html,eruby setlocal foldminlines=100
 
   " 'foldnestmax' 'fdn' number (default: 20)
   autocmd FileType xhtml,html,eruby setlocal foldnestmax=10
