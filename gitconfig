@@ -12,6 +12,7 @@
   pl = pull origin
   ps = push origin
   brename = branch -m
+  pr = pull --rebase=true origin master
 [core]
   editor = vim
 	excludesfile = ~/.gitignore_global

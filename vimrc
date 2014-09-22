@@ -118,9 +118,19 @@ Plugin 'repeat.vim'
 " support by repeat.vim
 Plugin 'surround.vim'
 
+
+
 " for markdown
 "Plugin 'godlygeek/tabular'
 "Plugin 'plasticboy/vim-markdown'
+
+"
+" TabooRename {name}
+" Renames the current tab with the name provided.
+"
+set sessionoptions+=tabpages,globals
+Plugin 'gcmt/taboo.vim'
+
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -254,10 +264,10 @@ nnoremap <leader>mh <c-w>h:q<cr>
 nnoremap <leader>mj <c-w>j:q<cr>
 nnoremap <leader>ml <c-w>l:q<cr>
 " Move window
-nnoremap <leader>k <c-w>k<cr>
-nnoremap <leader>h <c-w>h<cr>
-nnoremap <leader>j <c-w>j<cr>
-nnoremap <leader>l <c-w>l<cr>
+nnoremap wk <c-w>k<cr>
+nnoremap wh <c-w>h<cr>
+nnoremap wj <c-w>j<cr>
+nnoremap wl <c-w>l<cr>
 
 " map tails whitspace and tabs as error
 nnoremap <leader>w :match Error /\s\+$/<cr>
