@@ -128,6 +128,7 @@ Plugin 'surround.vim'
 " TabooRename {name}
 " Renames the current tab with the name provided.
 "
+nmap ,tr :TabooRename<space>
 set sessionoptions+=tabpages,globals
 Plugin 'gcmt/taboo.vim'
 
