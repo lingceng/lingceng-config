@@ -131,6 +131,8 @@ Plugin 'surround.vim'
 set sessionoptions+=tabpages,globals
 Plugin 'gcmt/taboo.vim'
 
+" highlight match html tag
+Plugin 'MatchTag'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -309,7 +311,16 @@ nnoremap <leader>4 :tabnext 4<cr>
 " help statusline
 " hi User1 ctermbg=darkblue guibg=dardblue
 set laststatus=2
-" set statusline=%<%f\ %h%m%r%=%1*%y%*\ ts:%{&tabstop}\ %-14.(%l/%L,%c%)\ %P
+" file and file status
+set statusline=\ %<%f\ %h%m%r
+" git branch status
+set statusline+=%1*%{fugitive#statusline()}%*
+" file type
+set statusline+=%=%1*%y%*
+set statusline+=\ [%{&tabstop}]
+set statusline+=\ %-10.(%l/%L,%c%)\ %-4P
+
+
 
 " set theme for airline
 nnoremap <leader>th :AirlineTheme hybrid<cr>
@@ -330,6 +341,16 @@ vnoremap <leader>hu y:!firefox https://github.com/<c-r>"<cr>
 
 " ri current word
 nnoremap <leader>ri :!ri <cword><cr>
+" past in nextline
+nnoremap np :pu<cr>
+
+
+" Enable mouse use in all modes
+set mouse=n
+
+" Set this to the name of your terminal that supports mouse codes.
+" Must be one of: xterm, xterm2, netterm, dec, jsbterm, pterm
+set ttymouse=xterm2
 
 " }}}
 
