@@ -18,3 +18,7 @@
 	excludesfile = ~/.gitignore_global
 [color]
   ui = true
+[push]
+	default = current
+[pull]
+	default = current

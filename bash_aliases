@@ -20,7 +20,7 @@ alias rdm="rake db:migrate  RAILS_ENV=development"
 alias rds="rake db:setup  RAILS_ENV=development"
 alias bi="bundle install"
 
-alias apush="git commit -a  &&  git push origin master"
+alias apush="git commit -a  &&  git push"
 
 # git checkout branch
 function git-cb {
