@@ -429,4 +429,6 @@ augroup END
 " }}}
 
 
+" set less to use css syntax
+autocmd  BufEnter *.less set syntax=css
 
