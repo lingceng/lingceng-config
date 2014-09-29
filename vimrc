@@ -178,6 +178,9 @@ set backspace=2
 " autocmd FileType c setlocal shiftwidth=4 tabstop=4
 " }}}
 
+" treat a dash as a word
+set iskeyword-=-
+
 " set tempfile swpfile path
 " set dir=/tmp
 
