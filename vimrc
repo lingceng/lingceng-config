@@ -128,6 +128,7 @@ Plugin 'surround.vim'
 " TabooRename {name}
 " Renames the current tab with the name provided.
 "
+nmap ,tr :TabooRename<space>
 set sessionoptions+=tabpages,globals
 Plugin 'gcmt/taboo.vim'
 
@@ -176,6 +177,9 @@ set backspace=2
 " you can also set different indent level for other languages
 " autocmd FileType c setlocal shiftwidth=4 tabstop=4
 " }}}
+
+" treat a dash as a word
+set iskeyword-=-
 
 " set tempfile swpfile path
 " set dir=/tmp
@@ -439,4 +443,6 @@ augroup END
 " }}}
 
 
+" set less to use css syntax
+autocmd  BufEnter *.less set syntax=css
 
