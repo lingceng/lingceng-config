@@ -1,5 +1,7 @@
 "
 " Grep Operator Vim Plugin
+" WARNING:
+" This plugin broken the view in `VIM - Vi IMproved 7.4`
 "
 " Description:
 " Grep text recursively in current file and open the quickfix window.

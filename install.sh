@@ -5,7 +5,7 @@ HOME_PATH=~
 echo "Create ${VIM_PLUGIN_PATH} links..."
 cd ${VIM_PLUGIN_PATH}
 ln -fs ${BASEDIR}/wipeout.vim
-ln -fs ${BASEDIR}/grep-operator.vim
+# ln -fs ${BASEDIR}/grep-operator.vim
 echo "Dne!"
 
 echo "Create home config links..."

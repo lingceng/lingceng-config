@@ -11,3 +11,6 @@ Create a symbol link to use, eg.
     cd ~
     ln -s path_to_rep/vimrc .vimrc
 
+### Usage
+
+    ./install.sh

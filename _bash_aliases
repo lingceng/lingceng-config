@@ -22,10 +22,21 @@ alias bi="bundle install"
 
 alias apush="git commit -a  &&  git push"
 
+alias wifi="sudo rmmod rtl8723be && sudo modprobe rtl8723be"
+
+
 # git checkout branch
 function git-cb {
     # replace space to -
-    echo "${1// /-}" | xargs -L1 git checkout -b
+    git checkout -b "${1// /-}"
+}
+
+# commit -> new branch -> rebase origin master ->  push
+function git-commit-rebase-push {
+    git commit -m "$1"
+    git checkout -b "${1// /-}"
+    git pull --rebase=true origin master
+    git push origin
 }
 
 function vga1400 {
