@@ -93,9 +93,10 @@ Plugin 'repeat.vim'
 
 
 " https://github.com/tpope/vim-surround
-" ds to delete surround
-" cs to change surround
-" ys to add surround
+" `ds` to delete surround
+" `cs` to change surround
+" `ys` to add surround
+" Visule then `S"` to add quotes
 " support by repeat.vim
 Plugin 'surround.vim'
 
@@ -152,6 +153,7 @@ set backup
 
 " custom preview command
 let mapleader = ","
+noremap \ ,
 
 " for ruby syntax of minitest
 " i_CTRL-X_CTRL-U to trigger in ruby file
@@ -208,25 +210,18 @@ nnoremap  <leader>` viw<esc>a`<esc>hbi`<esc>lel
 inoreabbrev enc  encoding: utf-8
 
 " merge window
-nnoremap mk <c-w>k:q<cr>
-nnoremap mh <c-w>h:q<cr>
-nnoremap mj <c-w>j:q<cr>
-nnoremap ml <c-w>l:q<cr>
-" Move window
-nnoremap wk <c-w>k<cr>
-nnoremap wh <c-w>h<cr>
-nnoremap wj <c-w>j<cr>
-nnoremap wl <c-w>l<cr>
+nnoremap <leader>mk <c-w>k:q<cr>
+nnoremap <leader>mh <c-w>h:q<cr>
+nnoremap <leader>mj <c-w>j:q<cr>
+nnoremap <leader>ml <c-w>l:q<cr>
 
-" map tails whitspace and tabs as error
-nnoremap <leader>w :match Error /\s\+$/<cr>
-nnoremap <leader>W :match none<cr>
-" clear ending white space
-nnoremap <leader>cw :%s/\v\s+$//e<cr>
+" Iterator window
+nnoremap <leader>w <c-w><c-w><cr>
+
 " warn tailing whitespace and tabs
+" use :retab to repace tabs to space
 autocmd BufRead * match Error /\v\s+$/
 match Error /\v\s+$/
-" use :retab to repace tabs to space
 
 " clear tailing whitespace before save
 autocmd BufWritePre * :silent %s/\v\s+$//e
