@@ -130,7 +130,7 @@ syntax on
 " incsearch highlight the next match while you're stil typing
 set hlsearch incsearch
 
-" tabspace settings ------- {{{
+" tabspace settings
 " if you use <tab> to indent the code
 " vim use tabs other than spaces for the indentaion
 " expandtab will turn a tab into 'tabstop' spaces
