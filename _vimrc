@@ -105,7 +105,7 @@ Plugin 'surround.vim'
 
 " TabooRename {name}
 " Renames the current tab with the name provided.
-nnoremap <leader>tr :TabooRename<space>
+cnoreabbrev tr  TabooRename
 set sessionoptions+=tabpages,globals
 Plugin 'gcmt/taboo.vim'
 
@@ -277,7 +277,7 @@ hi ColorColumn ctermbg=lightgrey guibg=lightgrey
 nnoremap <leader>cd :lcd %:p:h<cr>
 
 " past in nextline
-nnoremap np :pu<cr>
+" :pu<cr>
 
 " Enable mouse use in all modes
 set mouse=n
@@ -330,7 +330,21 @@ autocmd  BufEnter *.less set syntax=css
 
 " }}}
 
-" File Setting
+" New setting
+
+" Set Ex command history
+set history=200
+
+" List autocomplete menu
+" Use <C-d> to list all available
+set wildmenu
+set wildmode=full
+
+" Use <C-p> to act as <Up>, complete with heading match history
+cnoremap <C-p> <Up>
+cnoremap <C-n> <Down>
+
+" Filetype Setting
 " {{{
 augroup filetype_eruby
   autocmd!
