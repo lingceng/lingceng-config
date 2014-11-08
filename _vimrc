@@ -13,9 +13,12 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 
 " My Bundles here:
-" user CTRL-P to search
+" User CTRL-P to search, then <C-b> to change mode
 " F5 to refresh in search window
 Plugin 'kien/ctrlp.vim'
+let g:ctrlp_cmd = 'CtrlPMRU'
+" Use <C-b> to toggle bookmark
+let g:NERDTreeShowBookmarks = 1
 
 " :find user
 " :Rcontroller
@@ -35,6 +38,7 @@ Plugin 'tpope/vim-rails.git'
 "
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
+cnoremap ue UltiSnipsEdit
 
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
@@ -42,19 +46,6 @@ let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 let g:UltiSnipsEditSplit="vertical"
 
 nnoremap <leader>sn :tabe ~/.vim/bundle/vim-snippets/UltiSnips/<cr>
-
-" vim-snipmate version
-" https://github.com/garbas/vim-snipmate
-" Plugin 'MarcWeber/vim-addon-mw-utils'
-" Plugin 'tomtom/tlib_vim'
-" Plugin 'garbas/vim-snipmate'
-
-" Snippets are separated from the engine. Add this if you want them:
-" Plugin 'honza/vim-snippets'
-
-" status line
-"let g:airline#extensions#branch#enabled = 1
-"lugin 'bling/vim-airline'
 
 " tree navigate
 Plugin 'The-NERD-tree'
@@ -100,10 +91,6 @@ Plugin 'repeat.vim'
 " support by repeat.vim
 Plugin 'surround.vim'
 
-" for markdown
-"Plugin 'godlygeek/tabular'
-"Plugin 'plasticboy/vim-markdown'
-
 " TabooRename {name}
 " Renames the current tab with the name provided.
 cnoreabbrev tr  TabooRename
@@ -112,6 +99,13 @@ Plugin 'gcmt/taboo.vim'
 
 " highlight match html tag
 Plugin 'MatchTag'
+
+" Set path for tags
+Plugin 'tpope/vim-bundler'
+" Or use :pop
+nnoremap <leader>t <C-t>
+" TO jump to first {keyword}
+" :tag {keyword}
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -207,7 +201,7 @@ nnoremap  <leader>` viw<esc>a`<esc>hbi`<esc>lel
 
 " abbreviations
 " enc and hit the space
-inoreabbrev enc  encoding: utf-8
+inoreabbrev enc  #encoding: utf-8
 
 " merge window
 nnoremap <leader>mk <c-w>k:q<cr>
@@ -322,6 +316,7 @@ command! Bdi :call DeleteInactiveBufs()
 " set less to use css syntax
 autocmd  BufEnter *.less set syntax=css
 
+au BufRead,BufNewFile *.md set filetype=markdown
 
 " }}}
 
