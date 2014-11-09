@@ -107,6 +107,8 @@ nnoremap <leader>t <C-t>
 " TO jump to first {keyword}
 " :tag {keyword}
 
+Plugin 'ack.vim'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 
@@ -383,6 +385,22 @@ augroup filetype_markdown
   " to insert image
   autocmd Filetype markdown inoremap <buffer> <LocalLeader>i  []()<esc>F[a
 
+  autocmd Filetype markdown setlocal autoindent
 augroup END
+
+
+augroup filetype_python
+  autocmd!
+
+  autocmd Filetype python setlocal makeprg=python\ %
+
+  "Traceback (most recent call last):
+  "  File "hello.py", line 2, in <module>
+  "    if xxx >= 22:
+  "NameError: name 'xxx' is not defined
+  autocmd Filetype python setlocal efm=File "%f"\, line %l
+  autocmd Filetype python set efm=%C\ %.%#,%A\ \ File\ \"%f\"\\,\ line\ %l%.%#,%Z%[%^\ ]%\\@=%m
+augroup END
+
 " }}}
 
