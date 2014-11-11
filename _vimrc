@@ -17,8 +17,6 @@ Plugin 'gmarik/Vundle.vim'
 " F5 to refresh in search window
 Plugin 'kien/ctrlp.vim'
 let g:ctrlp_cmd = 'CtrlPMRU'
-" Use <C-b> to toggle bookmark
-let g:NERDTreeShowBookmarks = 1
 
 " :find user
 " :Rcontroller
@@ -38,7 +36,7 @@ Plugin 'tpope/vim-rails.git'
 "
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
-cnoremap ue UltiSnipsEdit
+cnoreabbrev ue UltiSnipsEdit
 
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
@@ -49,6 +47,10 @@ nnoremap <leader>sn :tabe ~/.vim/bundle/vim-snippets/UltiSnips/<cr>
 
 " tree navigate
 Plugin 'The-NERD-tree'
+" Use <C-b> to toggle bookmark
+" always show bookmarks
+"let g:NERDTreeShowBookmarks = 1
+
 
 " coffeescript
 Plugin 'vim-coffee-script'
@@ -107,7 +109,15 @@ nnoremap <leader>t <C-t>
 " TO jump to first {keyword}
 " :tag {keyword}
 
+" better than grep for code
 Plugin 'ack.vim'
+
+
+" syntax check
+Plugin 'Syntastic'
+
+" Make only one NERDTree
+" Plugin 'jistr/vim-nerdtree-tabs'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -249,6 +259,9 @@ nnoremap <leader>5 :tabnext 5<cr>
 set laststatus=2
 " file and file status
 set statusline=\ %<%f\ %h%m%r
+" syntax message and flag
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
 " git branch status
 set statusline+=%1*%{fugitive#statusline()}%*
 " file type
@@ -385,22 +398,6 @@ augroup filetype_markdown
   " to insert image
   autocmd Filetype markdown inoremap <buffer> <LocalLeader>i  []()<esc>F[a
 
-  autocmd Filetype markdown setlocal autoindent
 augroup END
-
-
-augroup filetype_python
-  autocmd!
-
-  autocmd Filetype python setlocal makeprg=python\ %
-
-  "Traceback (most recent call last):
-  "  File "hello.py", line 2, in <module>
-  "    if xxx >= 22:
-  "NameError: name 'xxx' is not defined
-  autocmd Filetype python setlocal efm=File "%f"\, line %l
-  autocmd Filetype python set efm=%C\ %.%#,%A\ \ File\ \"%f\"\\,\ line\ %l%.%#,%Z%[%^\ ]%\\@=%m
-augroup END
-
 " }}}
 
