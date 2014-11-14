@@ -2,8 +2,7 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
-" Vundle plugins
-" {{{
+" Vundle plugins  {{{
 " see :h vundle for more details or wiki for FAQ
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -117,8 +116,11 @@ Plugin 'ack.vim'
 " syntax check
 Plugin 'Syntastic'
 
-" Make only one NERDTree
-" Plugin 'jistr/vim-nerdtree-tabs'
+" autocomplete pop
+"Plugin 'AutoComplPop'
+
+" Super complete plugin
+Plugin 'Valloric/YouCompleteMe'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -126,8 +128,7 @@ call vundle#end()            " required
 " Put your non-Plugin stuff after this line
 " }}}
 
-" Settings
-" {{{
+" Settings  {{{
 
 " required for vundle plugins
 filetype plugin indent on
@@ -170,7 +171,8 @@ set grepprg=ack
 
 " for ruby syntax of minitest
 " i_CTRL-X_CTRL-U to trigger in ruby file
-set completefunc=syntaxcomplete#Complete
+"set completefunc=syntaxcomplete#Complete
+
 
 " set autoindent
 " set autoindent
@@ -356,8 +358,7 @@ set wildmode=full
 cnoremap <C-p> <Up>
 cnoremap <C-n> <Down>
 
-" Filetype Setting
-" {{{
+" Filetype Setting  {{{
 augroup filetype_eruby
   autocmd!
   " nowrap for html and erb
