@@ -104,6 +104,7 @@ Plugin 'MatchTag'
 
 " Set path for tags
 Plugin 'tpope/vim-bundler'
+
 " Or use :pop
 nnoremap <leader>t <C-t>
 " TO jump to first {keyword}
@@ -160,6 +161,12 @@ set backup
 " custom preview command
 let mapleader = ","
 noremap \ ,
+
+" search tags up to root
+set tags+=./tags;/
+
+" Use ack instead of grep
+set grepprg=ack
 
 " for ruby syntax of minitest
 " i_CTRL-X_CTRL-U to trigger in ruby file
@@ -364,8 +371,8 @@ augroup filetype_eruby
   " ctrl_t to complete tag for html and erb
   autocmd Filetype xhtm,html,eruby inoremap <buffer> <c-t> <esc>bywf>a</<ESC>pa><ESC>F>a
 
-  " 'foldmethod' 'fdm'  string (default: "manual")
-  autocmd FileType xhtml,html,eruby setlocal foldmethod=indent
+  " 'foldmethod' 'fdm'  string (default: "manual") other is "indent"
+  autocmd FileType xhtml,html,eruby setlocal foldmethod=manual
 
   " 'foldlevel' 'fdl' number (default: 0)
   " Sets the fold level: Folds with a higher level will be closed.
