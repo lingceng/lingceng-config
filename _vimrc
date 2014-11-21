@@ -372,4 +372,5 @@ augroup filetype_vim
   autocmd FileType vim setlocal foldmethod=marker
 augroup END
 
+autocmd BufRead *.py set makeprg=python\ %
 
