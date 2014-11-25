@@ -56,3 +56,5 @@ parse_git_branch() {
 }
 export PS1="\u \W\[\033[32m\]\$(parse_git_branch)\[\033[00m\] $(ruby -e 'print RUBY_VERSION') $ "
 
+
+export EDITOR=/usr/local/bin/vim

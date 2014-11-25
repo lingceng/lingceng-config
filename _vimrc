@@ -105,22 +105,31 @@ Plugin 'MatchTag'
 Plugin 'tpope/vim-bundler'
 
 " Or use :pop
-nnoremap <leader>t <C-t>
 " TO jump to first {keyword}
 " :tag {keyword}
 
 " better than grep for code
 Plugin 'ack.vim'
 
-
 " syntax check
 Plugin 'Syntastic'
+
+"Plugin 'AutoComplPop'
 
 " autocomplete pop
 "Plugin 'AutoComplPop'
 
+Plugin 'vim-ruby/vim-ruby'
+
 " Super complete plugin
-Plugin 'Valloric/YouCompleteMe'
+"Plugin 'Valloric/YouCompleteMe'
+" make YCM compatible with UltiSnips
+let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+" list command
+let g:ycm_key_invoke_completion = ''
+
+Plugin 'tomtom/tcomment_vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -157,11 +166,9 @@ set backspace=2
 
 " open back up
 set backup
-" set backupdir=/tmp
 
 " custom preview command
 let mapleader = ","
-noremap \ ,
 
 " search tags up to root
 set tags+=./tags;/
@@ -169,15 +176,21 @@ set tags+=./tags;/
 " Use ack instead of grep
 set grepprg=ack
 
+" grep current word
+nnoremap <leader>g :grep <CWORD><CR>
+" use // to search selected content
+vnoremap // y/<c-r>"<cr>
+
+
 " for ruby syntax of minitest
 " i_CTRL-X_CTRL-U to trigger in ruby file
-"set completefunc=syntaxcomplete#Complete
-
+set completefunc=syntaxcomplete#Complete
 
 " set autoindent
 " set autoindent
 
 " case sensitive when capital character exists
+set ignorecase
 set smartcase
 
 " http://wordlist.aspell.net/dicts/
@@ -198,7 +211,7 @@ nnoremap <leader>p "+p
 inoremap jk <esc>
 " disable old esc
 " other is <c-c>
-inoremap <esc> <nop>
+" inoremap <esc> <nop>
 
 " run current line in ruby
 " | is chain to run command
@@ -224,31 +237,18 @@ nnoremap  <leader>` viw<esc>a`<esc>hbi`<esc>lel
 " enc and hit the space
 inoreabbrev enc  #encoding: utf-8
 
-" merge window
-nnoremap <leader>mk <c-w>k:q<cr>
-nnoremap <leader>mh <c-w>h:q<cr>
-nnoremap <leader>mj <c-w>j:q<cr>
-nnoremap <leader>ml <c-w>l:q<cr>
-
-" Iterator window
-nnoremap <leader>w <c-w><c-w><cr>
-
 " warn tailing whitespace and tabs
 " use :retab to repace tabs to space
 autocmd BufRead * match Error /\v\s+$/
-match Error /\v\s+$/
+nnoremap <leader>c :%s/\v\s+$//e<cr>
 
 " clear tailing whitespace before save
-autocmd BufWritePre * :silent %s/\v\s+$//e
-
-" grep
-nnoremap <leader>g :!grep -R
+"autocmd BufWritePre * :silent %s/\v\s+$//e
 
 " open NERDTree
 nnoremap <leader>n :NERDTree<cr>
 " find current file in NERDTree
 nnoremap <leader>f :NERDTreeFind<cr>
-
 
 " user alt-left to move tab left
 " user alt-right to move tab right
@@ -310,10 +310,6 @@ function! QuickfixFilenames()
   return join(values(buffer_numbers))
 endfunction
 
-" use // to search selected content
-vnoremap // y/<c-r>"<cr>
-
-
 
 " :Bdi  delete hidden buffer
 function! DeleteInactiveBufs()
@@ -358,33 +354,19 @@ set wildmode=full
 cnoremap <C-p> <Up>
 cnoremap <C-n> <Down>
 
-" Filetype Setting  {{{
+" Generate tags
+noremap <C-F5> :!ctags -R<CR>
+
+" complete with tag
+inoremap <C-]> <C-x><C-]>
+
+" back track tag jump
+nnoremap <leader>t <C-t>
+
 augroup filetype_eruby
   autocmd!
   " nowrap for html and erb
   autocmd FileType xhtml,html,eruby setlocal nowrap
-
-  " <% %> for erb
-
-  " auto complete tag
-  " inoremap to avoid recursively map
-  " <buffer> to avoid mismap between buffer
-  " ctrl_t to complete tag for html and erb
-  autocmd Filetype xhtm,html,eruby inoremap <buffer> <c-t> <esc>bywf>a</<ESC>pa><ESC>F>a
-
-  " 'foldmethod' 'fdm'  string (default: "manual") other is "indent"
-  autocmd FileType xhtml,html,eruby setlocal foldmethod=manual
-
-  " 'foldlevel' 'fdl' number (default: 0)
-  " Sets the fold level: Folds with a higher level will be closed.
-  autocmd FileType xhtml,html,eruby setlocal foldlevel=3
-
-  " 'foldminlines' 'fml'  number (default: 1)
-  autocmd FileType xhtml,html,eruby setlocal foldminlines=100
-
-  " 'foldnestmax' 'fdn' number (default: 20)
-  autocmd FileType xhtml,html,eruby setlocal foldnestmax=10
-
 augroup END
 
 augroup filetype_vim
@@ -393,19 +375,4 @@ augroup filetype_vim
   autocmd FileType vim setlocal foldmethod=marker
 augroup END
 
-augroup filetype_markdown
-  autocmd!
-
-  " add heading
-  autocmd Filetype markdown inoremap <buffer> <LocalLeader>1 <esc>o===<esc>o
-  autocmd Filetype markdown inoremap <buffer> <LocalLeader>2 <esc>o---<esc>o
-  autocmd Filetype markdown inoremap <buffer> <LocalLeader>3 <esc>I### <esc>o
-  autocmd Filetype markdown inoremap <buffer> <LocalLeader>4 <esc>I#### <esc>o
-  autocmd Filetype markdown inoremap <buffer> <LocalLeader>5 <esc>I##### <<esc>o
-
-  " to insert image
-  autocmd Filetype markdown inoremap <buffer> <LocalLeader>i  []()<esc>F[a
-
-augroup END
-" }}}
-
+autocmd BufRead *.py set makeprg=python\ %
