@@ -24,7 +24,6 @@ alias apush="git commit -a  &&  git push"
 
 alias wifi="sudo rmmod rtl8723be && sudo modprobe rtl8723be"
 
-
 # git checkout branch
 function git-cb {
     # replace space to -
@@ -51,5 +50,9 @@ function vga1920 {
     xrandr --output VGA1 --mode 1920x1080_60.00
 }
 
-
+# git prompt
+parse_git_branch() {
+  git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
+}
+export PS1="\u \W\[\033[32m\]\$(parse_git_branch)\[\033[00m\] $(ruby -e 'print RUBY_VERSION') $ "
 
