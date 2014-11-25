@@ -119,6 +119,8 @@ Plugin 'Syntastic'
 " autocomplete pop
 "Plugin 'AutoComplPop'
 
+Plugin 'vim-ruby/vim-ruby'
+
 " Super complete plugin
 "Plugin 'Valloric/YouCompleteMe'
 " make YCM compatible with UltiSnips
@@ -127,6 +129,7 @@ let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
 " list command
 let g:ycm_key_invoke_completion = ''
 
+Plugin 'tomtom/tcomment_vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -237,10 +240,10 @@ inoreabbrev enc  #encoding: utf-8
 " warn tailing whitespace and tabs
 " use :retab to repace tabs to space
 autocmd BufRead * match Error /\v\s+$/
-match Error /\v\s+$/
+nnoremap <leader>c :%s/\v\s+$//e<cr>
 
 " clear tailing whitespace before save
-autocmd BufWritePre * :silent %s/\v\s+$//e
+"autocmd BufWritePre * :silent %s/\v\s+$//e
 
 " open NERDTree
 nnoremap <leader>n :NERDTree<cr>
@@ -373,4 +376,3 @@ augroup filetype_vim
 augroup END
 
 autocmd BufRead *.py set makeprg=python\ %
-
