@@ -15,7 +15,7 @@ Plugin 'gmarik/Vundle.vim'
 " User CTRL-P to search, then <C-b> to change mode
 " F5 to refresh in search window
 Plugin 'kien/ctrlp.vim'
-let g:ctrlp_cmd = 'CtrlPMRU'
+"let g:ctrlp_cmd = 'CtrlPMRU'
 
 " :find user
 " :Rcontroller
