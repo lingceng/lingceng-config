@@ -61,7 +61,7 @@ Plugin 'airblade/vim-gitgutter'
 "  :echo has('ruby')  1 means ruby interpreter is builtin
 "  redcarpet          for markdown preview
 Plugin 'greyblake/vim-preview'
-
+let g:PreviewBrowsers    = 'google-chrome,chromium-browser,firefox,safari,epiphany,opera'
 
 " replace similar words in once
 "  /\cgoodday
@@ -167,7 +167,6 @@ set backspace=2
 " open back up
 set backup
 
-" custom preview command
 let mapleader = ","
 
 " search tags up to root
