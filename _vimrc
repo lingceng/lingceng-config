@@ -57,11 +57,13 @@ Plugin 'vim-coffee-script'
 " show git diff
 Plugin 'airblade/vim-gitgutter'
 
-"  <leader>P          to preview markdown
-"  :echo has('ruby')  1 means ruby interpreter is builtin
-"  redcarpet          for markdown preview
-Plugin 'greyblake/vim-preview'
-let g:PreviewBrowsers    = 'google-chrome,chromium-browser,firefox,safari,epiphany,opera'
+" npm install -g livedown
+" sudo ln -s /usr/bin/nodejs /usr/bin/node
+"
+" livedown start account.mkd --open
+"
+Plugin 'shime/vim-livedown'
+nnoremap gm :call LivedownPreview()<CR>
 
 " replace similar words in once
 "  /\cgoodday
