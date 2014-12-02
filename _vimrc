@@ -318,9 +318,9 @@ nnoremap <leader>5 :tabnext 5<cr>
 set number
 
 " highlight overflow 80
-set textwidth=80
-set colorcolumn=+1
-hi ColorColumn ctermbg=lightgrey guibg=lightgrey
+"set textwidth=80
+"set colorcolumn=+1
+"hi ColorColumn ctermbg=darkgray
 
 " local cd to current folder
 nnoremap <leader>cd :lcd %:p:h<cr>
