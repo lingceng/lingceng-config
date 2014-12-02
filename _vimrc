@@ -57,6 +57,12 @@ Plugin 'vim-coffee-script'
 " show git diff
 Plugin 'airblade/vim-gitgutter'
 
+" always show status line
+set laststatus=2
+" force vim automatic detection of terminal colors
+set t_Co=256
+Plugin 'bling/vim-airline'
+
 " npm install -g livedown
 " sudo ln -s /usr/bin/nodejs /usr/bin/node
 "
@@ -131,7 +137,32 @@ let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
 " list command
 let g:ycm_key_invoke_completion = ''
 
+" gc to make comment
 Plugin 'tomtom/tcomment_vim'
+
+" <leader><leader> to trigger
+Plugin 'Lokaltog/vim-easymotion'
+" Gif config
+nmap s <Plug>(easymotion-s2)
+nmap t <Plug>(easymotion-t2)
+
+" Gif config
+map  / <Plug>(easymotion-sn)
+omap / <Plug>(easymotion-tn)
+map  n <Plug>(easymotion-next)
+map  N <Plug>(easymotion-prev)
+
+map <Leader>l <Plug>(easymotion-lineforward)
+map <Leader>j <Plug>(easymotion-j)
+map <Leader>k <Plug>(easymotion-k)
+map <Leader>h <Plug>(easymotion-linebackward)
+
+let g:EasyMotion_startofline = 0 " keep cursor colum when JK motion
+let g:EasyMotion_smartcase = 1
+
+Plugin 'tristen/vim-sparkup'
+
+"Plugin 'nanotech/jellybeans.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -240,8 +271,12 @@ inoreabbrev enc  #encoding: utf-8
 
 " warn tailing whitespace and tabs
 " use :retab to repace tabs to space
-autocmd BufRead * match Error /\v\s+$/
+" autocmd BufRead * match Error /\v\s+$/
 nnoremap <leader>c :%s/\v\s+$//e<cr>
+
+" make extra whitespace visible
+set list
+set listchars=tab:>.,trail:.,extends:#,nbsp:.
 
 " clear tailing whitespace before save
 "autocmd BufWritePre * :silent %s/\v\s+$//e
@@ -266,18 +301,18 @@ nnoremap <leader>5 :tabnext 5<cr>
 " custom statusline
 " help statusline
 " hi User1 ctermbg=darkblue guibg=dardblue
-set laststatus=2
-" file and file status
-set statusline=\ %<%f\ %h%m%r
-" syntax message and flag
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-" git branch status
-set statusline+=%1*%{fugitive#statusline()}%*
-" file type
-set statusline+=%=%1*%y%*
-set statusline+=\ [%{&tabstop}]
-set statusline+=\ %-10.(%l/%L,%c%)\ %-4P
+" set laststatus=2
+" " file and file status
+" set statusline=\ %<%f\ %h%m%r
+" " syntax message and flag
+" set statusline+=%#warningmsg#
+" set statusline+=%{SyntasticStatuslineFlag()}
+" " git branch status
+" set statusline+=%1*%{fugitive#statusline()}%*
+" " file type
+" set statusline+=%=%1*%y%*
+" set statusline+=\ [%{&tabstop}]
+" set statusline+=\ %-10.(%l/%L,%c%)\ %-4P
 
 " show line number
 set number
@@ -363,6 +398,9 @@ inoremap <C-]> <C-x><C-]>
 
 " back track tag jump
 nnoremap <leader>t <C-t>
+
+" highlight cursorline
+" set cursorline
 
 augroup filetype_eruby
   autocmd!
