@@ -197,8 +197,8 @@ set backspace=2
 " you can also set different indent level for other languages
 " autocmd FileType c setlocal shiftwidth=4 tabstop=4
 
-" open back up
-set backup
+" close back up
+set nobackup
 
 let mapleader = ","
 
@@ -401,6 +401,15 @@ nnoremap <leader>t <C-t>
 
 " highlight cursorline
 " set cursorline
+
+" always keep the last line
+if !&scrolloff
+  set scrolloff=1
+endif
+if !&sidescrolloff
+  set sidescrolloff=5
+endif
+set display+=lastline
 
 augroup filetype_eruby
   autocmd!
