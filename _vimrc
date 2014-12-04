@@ -57,11 +57,19 @@ Plugin 'vim-coffee-script'
 " show git diff
 Plugin 'airblade/vim-gitgutter'
 
-"  <leader>P          to preview markdown
-"  :echo has('ruby')  1 means ruby interpreter is builtin
-"  redcarpet          for markdown preview
-Plugin 'greyblake/vim-preview'
+" always show status line
+set laststatus=2
+" force vim automatic detection of terminal colors
+set t_Co=256
+Plugin 'bling/vim-airline'
 
+" npm install -g livedown
+" sudo ln -s /usr/bin/nodejs /usr/bin/node
+"
+" livedown start account.mkd --open
+"
+Plugin 'shime/vim-livedown'
+nnoremap gm :call LivedownPreview()<CR>
 
 " replace similar words in once
 "  /\cgoodday
@@ -129,7 +137,28 @@ let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
 " list command
 let g:ycm_key_invoke_completion = ''
 
+" gc to make comment
 Plugin 'tomtom/tcomment_vim'
+
+" <leader><leader> to trigger
+Plugin 'Lokaltog/vim-easymotion'
+
+" Gif config
+nmap s <Plug>(easymotion-s2)
+nmap t <Plug>(easymotion-t2)
+
+map <Leader>l <Plug>(easymotion-lineforward)
+map <Leader>j <Plug>(easymotion-j)
+map <Leader>k <Plug>(easymotion-k)
+map <Leader>h <Plug>(easymotion-linebackward)
+
+let g:EasyMotion_startofline = 0 " keep cursor colum when JK motion
+let g:EasyMotion_smartcase = 1
+
+Plugin 'tristen/vim-sparkup'
+let g:sparkupNextMapping = ''
+
+"Plugin 'nanotech/jellybeans.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -164,10 +193,9 @@ set backspace=2
 " you can also set different indent level for other languages
 " autocmd FileType c setlocal shiftwidth=4 tabstop=4
 
-" open back up
-set backup
+" close back up
+set nobackup
 
-" custom preview command
 let mapleader = ","
 
 " search tags up to root
@@ -239,8 +267,12 @@ inoreabbrev enc  #encoding: utf-8
 
 " warn tailing whitespace and tabs
 " use :retab to repace tabs to space
-autocmd BufRead * match Error /\v\s+$/
+" autocmd BufRead * match Error /\v\s+$/
 nnoremap <leader>c :%s/\v\s+$//e<cr>
+
+" make extra whitespace visible
+set list
+set listchars=tab:>.,trail:.,extends:#,nbsp:.
 
 " clear tailing whitespace before save
 "autocmd BufWritePre * :silent %s/\v\s+$//e
@@ -265,26 +297,26 @@ nnoremap <leader>5 :tabnext 5<cr>
 " custom statusline
 " help statusline
 " hi User1 ctermbg=darkblue guibg=dardblue
-set laststatus=2
-" file and file status
-set statusline=\ %<%f\ %h%m%r
-" syntax message and flag
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-" git branch status
-set statusline+=%1*%{fugitive#statusline()}%*
-" file type
-set statusline+=%=%1*%y%*
-set statusline+=\ [%{&tabstop}]
-set statusline+=\ %-10.(%l/%L,%c%)\ %-4P
+" set laststatus=2
+" " file and file status
+" set statusline=\ %<%f\ %h%m%r
+" " syntax message and flag
+" set statusline+=%#warningmsg#
+" set statusline+=%{SyntasticStatuslineFlag()}
+" " git branch status
+" set statusline+=%1*%{fugitive#statusline()}%*
+" " file type
+" set statusline+=%=%1*%y%*
+" set statusline+=\ [%{&tabstop}]
+" set statusline+=\ %-10.(%l/%L,%c%)\ %-4P
 
 " show line number
 set number
 
 " highlight overflow 80
-set textwidth=80
-set colorcolumn=+1
-hi ColorColumn ctermbg=lightgrey guibg=lightgrey
+"set textwidth=80
+"set colorcolumn=+1
+"hi ColorColumn ctermbg=darkgray
 
 " local cd to current folder
 nnoremap <leader>cd :lcd %:p:h<cr>
@@ -362,6 +394,18 @@ inoremap <C-]> <C-x><C-]>
 
 " back track tag jump
 nnoremap <leader>t <C-t>
+
+" highlight cursorline
+" set cursorline
+
+" always keep the last line
+if !&scrolloff
+  set scrolloff=1
+endif
+if !&sidescrolloff
+  set sidescrolloff=5
+endif
+set display+=lastline
 
 augroup filetype_eruby
   autocmd!
