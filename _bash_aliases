@@ -51,10 +51,21 @@ function vga1920 {
 }
 
 # git prompt
-parse_git_branch() {
-  git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
+function parse_git_branch {
+  git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ \1/'
 }
-export PS1="\u \W\[\033[32m\]\$(parse_git_branch)\[\033[00m\] $(ruby -e 'print RUBY_VERSION') $ "
+function elite {
+  local GREEN="\[\033[0;32m\]"
+  local YELLOW="\[\033[0;33m\]"
+  local BLUE="\[\033[0;34m\]"
+  local PURPLE="\[\033[0;35m\]"
+  local NO_COLOUR="\[\033[0m\]"
+
+  PS1="$GREEN\u$NO_COLOUR at \
+$YELLOW\h$NO_COLOUR using $BLUE$(ruby -e 'print RUBY_VERSION')$NO_COLOUR \
+in $GREEN\w$NO_COLOUR on $PURPLE$(parse_git_branch)$NO_COLOUR$GREEN!$NO_COLOUR\n± "
+}
+elite
 
 
 export EDITOR=/usr/local/bin/vim
