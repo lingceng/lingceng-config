@@ -142,15 +142,10 @@ Plugin 'tomtom/tcomment_vim'
 
 " <leader><leader> to trigger
 Plugin 'Lokaltog/vim-easymotion'
+
 " Gif config
 nmap s <Plug>(easymotion-s2)
 nmap t <Plug>(easymotion-t2)
-
-" Gif config
-map  / <Plug>(easymotion-sn)
-omap / <Plug>(easymotion-tn)
-map  n <Plug>(easymotion-next)
-map  N <Plug>(easymotion-prev)
 
 map <Leader>l <Plug>(easymotion-lineforward)
 map <Leader>j <Plug>(easymotion-j)
