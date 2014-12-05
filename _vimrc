@@ -81,6 +81,7 @@ Plugin 'SmartCase'
 " Gedit edit file in index
 " Gdiff compare with index
 Plugin 'fugitive.vim'
+cnoreabbrev gs  Gstatus
 
 " Want to turn fooBar into foo_bar? Press crs (coerce to snake_case).
 "
@@ -156,7 +157,7 @@ let g:EasyMotion_startofline = 0 " keep cursor colum when JK motion
 let g:EasyMotion_smartcase = 1
 
 Plugin 'tristen/vim-sparkup'
-let g:sparkupNextMapping = ''
+let g:sparkupNextMapping = '<c-y>'
 
 "Plugin 'nanotech/jellybeans.vim'
 
