@@ -62,8 +62,8 @@ function elite {
   local NO_COLOUR="\[\033[0m\]"
 
   PS1="$GREEN\u$NO_COLOUR at \
-$YELLOW\h$NO_COLOUR using $BLUE$(ruby -e 'print RUBY_VERSION')$NO_COLOUR \
-in $GREEN\w$NO_COLOUR on $PURPLE$(parse_git_branch)$NO_COLOUR$GREEN!$NO_COLOUR\n± "
+$YELLOW\h$NO_COLOUR using $BLUE\$(ruby -e 'print RUBY_VERSION')$NO_COLOUR \
+in $GREEN\w$NO_COLOUR on $PURPLE\$(parse_git_branch)$NO_COLOUR$GREEN!$NO_COLOUR\n± "
 }
 elite
 
