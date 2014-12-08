@@ -141,20 +141,18 @@ let g:ycm_key_invoke_completion = ''
 " gc to make comment
 Plugin 'tomtom/tcomment_vim'
 
+
+let g:EasyMotion_startofline = 0 " keep cursor colum when JK motion
+let g:EasyMotion_smartcase = 1
+
 " <leader><leader> to trigger
 Plugin 'Lokaltog/vim-easymotion'
-
-" Gif config
-nmap s <Plug>(easymotion-s2)
-nmap t <Plug>(easymotion-t2)
 
 map <Leader>l <Plug>(easymotion-lineforward)
 map <Leader>j <Plug>(easymotion-j)
 map <Leader>k <Plug>(easymotion-k)
 map <Leader>h <Plug>(easymotion-linebackward)
 
-let g:EasyMotion_startofline = 0 " keep cursor colum when JK motion
-let g:EasyMotion_smartcase = 1
 
 Plugin 'tristen/vim-sparkup'
 let g:sparkupNextMapping = '<c-y>'
