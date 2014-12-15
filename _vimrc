@@ -204,10 +204,12 @@ set tags+=./tags;/
 set grepprg=ack
 
 " grep current word
-nnoremap <leader>g :grep <CWORD><CR>
+nnoremap <leader>g :grep <cword><CR>
 " use // to search selected content
 vnoremap // y/<c-r>"<cr>
 
+nnoremap <leader>d :!dict <cword><CR>
+vnoremap <leader>d y:!dict <c-r>"<CR>
 
 " for ruby syntax of minitest
 " i_CTRL-X_CTRL-U to trigger in ruby file
@@ -268,6 +270,8 @@ inoreabbrev enc  #encoding: utf-8
 " use :retab to repace tabs to space
 " autocmd BufRead * match Error /\v\s+$/
 nnoremap <leader>c :%s/\v\s+$//e<cr>
+
+autocmd BufWritePre * :%s/\v\s+$//e
 
 " make extra whitespace visible
 set list
@@ -372,6 +376,10 @@ au BufRead,BufNewFile *.md set filetype=markdown
 " }}}
 
 " New setting
+
+" use % to jump between HTML pair tga
+" or class/end def/end if/end pair
+runtime macros/matchit.vim
 
 " Set Ex command history
 set history=200

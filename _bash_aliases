@@ -70,5 +70,4 @@ elite
 
 export EDITOR=/usr/local/bin/vim
 
-export PATH=$PATH:$HOME/workspace/document/bin
-alias dict="/home/lingceng/workspace/Command-Line-Youdao-Dictionary/dict"
+export PATH=$PATH:$HOME/workspace/document/bin:$HOME/workspace/bing_dictionary
