@@ -2,6 +2,8 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
+let mapleader = ","
+
 " Vundle plugins  {{{
 " see :h vundle for more details or wiki for FAQ
 " set the runtime path to include Vundle and initialize
@@ -157,6 +159,12 @@ map <Leader>h <Plug>(easymotion-linebackward)
 Plugin 'tristen/vim-sparkup'
 let g:sparkupNextMapping = '<c-y>'
 
+" use :EnMasse to edit files in quickfix and save at once
+Plugin 'Wolfy87/vim-enmasse'
+
+" use <leader>gb to match and edit files
+Plugin 'pelodelfuego/vim-swoop'
+
 "Plugin 'nanotech/jellybeans.vim'
 
 " All of your Plugins must be added before the following line
@@ -195,7 +203,6 @@ set backspace=2
 " close back up
 set nobackup
 
-let mapleader = ","
 
 " search tags up to root
 set tags+=./tags;/
@@ -284,6 +291,7 @@ set listchars=tab:>.,trail:.,extends:#,nbsp:.
 nnoremap <leader>n :NERDTree<cr>
 " find current file in NERDTree
 nnoremap <leader>f :NERDTreeFind<cr>
+cnoreabbrev nc :NERDTreeClose<cr>
 
 " user alt-left to move tab left
 " user alt-right to move tab right
@@ -317,9 +325,9 @@ nnoremap <leader>5 :tabnext 5<cr>
 set number
 
 " highlight overflow 80
-"set textwidth=80
-"set colorcolumn=+1
-"hi ColorColumn ctermbg=darkgray
+set textwidth=80
+set colorcolumn=+1
+hi ColorColumn ctermbg=darkgray
 
 " local cd to current folder
 nnoremap <leader>cd :lcd %:p:h<cr>
