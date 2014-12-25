@@ -132,6 +132,9 @@ Plugin 'Syntastic'
 " autocomplete pop
 "Plugin 'AutoComplPop'
 
+" Usage
+" ]m next method
+" ]M next method end
 Plugin 'vim-ruby/vim-ruby'
 
 " Super complete plugin
@@ -166,6 +169,9 @@ Plugin 'Wolfy87/vim-enmasse'
 
 " use <leader>gb to match and edit files
 Plugin 'pelodelfuego/vim-swoop'
+
+Plugin 'majutsushi/tagbar'
+nnoremap <F8> :TagbarToggle<CR>
 
 "Plugin 'nanotech/jellybeans.vim'
 
