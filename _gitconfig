@@ -15,10 +15,10 @@
   pr = pull --rebase=true origin master
 [core]
   editor = vim
-	excludesfile = ~/.gitignore_global
+  excludesfile = ~/.gitignore_global
 [color]
   ui = true
 [push]
-	default = current
+  default = current
 [pull]
-	default = current
+  default = current

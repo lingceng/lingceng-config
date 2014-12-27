@@ -173,6 +173,9 @@ nnoremap <F8> :TagbarToggle<CR>
 
 "Plugin 'nanotech/jellybeans.vim'
 
+" :vnoremap <leader>rem  :RExtractMethod<cr>
+Plugin 'ecomba/vim-ruby-refactoring'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 
@@ -441,3 +444,6 @@ augroup filetype_vim
 augroup END
 
 autocmd BufRead *.py set makeprg=python\ %
+
+" split hash
+vnoremap <leader>s :s/,/,\r/g<CR> \| :nohl<CR>

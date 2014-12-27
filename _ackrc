@@ -1,3 +1,4 @@
 --ignore-dir=log
 --ignore-dir=tmp
---ignore-dir=tags
+# http://beyondgrep.com/documentation/ack-2.04-man.html#is_filename
+--ignore-file=is:tags
