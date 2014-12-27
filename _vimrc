@@ -37,7 +37,9 @@ Plugin 'tpope/vim-rails.git'
 "
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
-cnoreabbrev ue UltiSnipsEdit
+
+" Wisely add end in ruby
+Plugin 'tpope/vim-endwise'
 
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
@@ -175,6 +177,10 @@ nnoremap <F8> :TagbarToggle<CR>
 
 " :vnoremap <leader>rem  :RExtractMethod<cr>
 Plugin 'ecomba/vim-ruby-refactoring'
+
+" :AsyncShell run any program and load results in a split
+" need +clientserver
+" Plugin 'idbrii/AsyncCommand'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
