@@ -182,6 +182,14 @@ Plugin 'ecomba/vim-ruby-refactoring'
 " need +clientserver
 " Plugin 'idbrii/AsyncCommand'
 
+Plugin 'godlygeek/tabular'
+nnoremap <Leader>a= :Tabularize /=<CR>
+vnoremap <Leader>a= :Tabularize /=<CR>
+nnoremap <Leader>a: :Tabularize /:\zs/l0l1<CR>
+vnoremap <Leader>a: :Tabularize /:\zs/l0l1<CR>
+
+Plugin 'ervandew/supertab'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 
