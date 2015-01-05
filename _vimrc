@@ -188,7 +188,13 @@ vnoremap <Leader>a= :Tabularize /=<CR>
 nnoremap <Leader>a: :Tabularize /:\zs/l0l1<CR>
 vnoremap <Leader>a: :Tabularize /:\zs/l0l1<CR>
 
-Plugin 'ervandew/supertab'
+"Plugin 'ervandew/supertab'
+
+" aj around json
+" ij in json
+" gqaj format
+Plugin 'tpope/vim-jdaddy'
+
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -426,6 +432,8 @@ cnoremap <C-n> <Down>
 
 " Generate tags
 noremap <C-F5> :!ctags -R<CR>
+" Find tag example
+" :tags compute_lease
 
 " complete with tag
 inoremap <C-]> <C-x><C-]>
@@ -461,3 +469,5 @@ autocmd BufRead *.py set makeprg=python\ %
 
 " split hash
 vnoremap <leader>s :s/,/,\r/g<CR> \| :nohl<CR>
+
+autocmd FileType markdown setlocal autoindent
