@@ -471,3 +471,9 @@ autocmd BufRead *.py set makeprg=python\ %
 vnoremap <leader>s :s/,/,\r/g<CR> \| :nohl<CR>
 
 autocmd FileType markdown setlocal autoindent
+
+" copy current file path to system clipboard
+nnoremap <leader>cp :let @+ = expand("%")<CR>
+
+nnoremap j gj
+nnoremap k gk
