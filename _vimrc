@@ -125,6 +125,7 @@ Plugin 'tpope/vim-bundler'
 Plugin 'ack.vim'
 
 " syntax check
+let g:syntastic_ignore_files = ['\m.*application.css.scss']
 Plugin 'Syntastic'
 
 "Plugin 'AutoComplPop'

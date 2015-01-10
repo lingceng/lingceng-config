@@ -1,9 +1,9 @@
 BASEDIR=$(pwd)/$line
 
 echo "Create vim plugin links..."
+mkdir -p ~/.vim/plugin
 cd ~/.vim/plugin
 ln -fs ${BASEDIR}/wipeout.vim
-# ln -fs ${BASEDIR}/grep-operator.vim
 echo "Done!"
 
 echo "Create home directory config links..."
