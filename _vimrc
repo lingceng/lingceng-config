@@ -25,6 +25,13 @@ Plugin 'kien/ctrlp.vim'
 "
 Plugin 'tpope/vim-rails.git'
 
+
+augroup markdown
+  autocmd! FileType markdown setlocal autoindent
+  autocmd! BufRead,BufNewFile *.md set filetype=markdown
+  autocmd! BufRead,BufNewFile *.mkd set filetype=markdown
+augroup END
+
 " snipMate Version
 " code snipe
 "
@@ -45,8 +52,7 @@ let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 let g:UltiSnipsEditSplit="vertical"
-
-nnoremap <leader>sn :tabe ~/.vim/bundle/vim-snippets/UltiSnips/<cr>
+nnoremap <leader>ls <ESC>:call UltiSnips#ListSnippets()<CR>
 
 " tree navigate
 Plugin 'The-NERD-tree'
@@ -116,6 +122,7 @@ Plugin 'MatchTag'
 
 " Set path for tags
 Plugin 'tpope/vim-bundler'
+
 
 " Or use :pop
 " TO jump to first {keyword}
@@ -195,6 +202,9 @@ vnoremap <Leader>a: :Tabularize /:\zs/l0l1<CR>
 " ij in json
 " gqaj format
 Plugin 'tpope/vim-jdaddy'
+
+" ,w ,e  ,b
+Plugin 'bkad/CamelCaseMotion'
 
 
 " All of your Plugins must be added before the following line
@@ -409,7 +419,7 @@ command! Bdi :call DeleteInactiveBufs()
 " set less to use css syntax
 autocmd  BufEnter *.less set syntax=css
 
-au BufRead,BufNewFile *.md set filetype=markdown
+
 
 " }}}
 
@@ -478,3 +488,9 @@ nnoremap <leader>cp :let @+ = expand("%")<CR>
 
 nnoremap j gj
 nnoremap k gk
+nnoremap <leader>, :w<CR>
+
+
+" whole page text-object
+vnoremap o :<C-U>normal ggVG<CR>
+onoremap o :normal ggVG<CR>
