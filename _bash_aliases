@@ -76,3 +76,7 @@ export PATH=$PATH:$HOME/workspace/document/bin:$HOME/workspace/bing_dictionary
 autocutsel &
 autocutsel -s PRIMARY &
 
+# Enable multi line histroy
+shopt -s cmdhist
+shopt -s listhist
+
