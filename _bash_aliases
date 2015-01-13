@@ -71,3 +71,8 @@ elite
 export EDITOR=/usr/local/bin/vim
 
 export PATH=$PATH:$HOME/workspace/document/bin:$HOME/workspace/bing_dictionary
+
+# sync between the primary X/X11 clipboard and the Gnome/GTK clipboard
+autocutsel &
+autocutsel -s PRIMARY &
+

@@ -206,6 +206,9 @@ Plugin 'tpope/vim-jdaddy'
 " ,w ,e  ,b
 Plugin 'bkad/CamelCaseMotion'
 
+" little change
+"Plugin 'tpope/vim-markdown'
+
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -337,13 +340,17 @@ cnoreabbrev nc :NERDTreeClose<cr>
 " user alt-right to move tab right
 nnoremap <C-Left> :tabprevious<CR>
 nnoremap <C-Right> :tabnext<CR>
-nnoremap <silent> <A-Left> :execute 'silent! tabmove ' . (tabpagenr()-2)<CR>
+nnoremap <silent> <A-Left>  :execute 'silent! tabmove ' . (tabpagenr()-2)<CR>
 nnoremap <silent> <A-Right> :execute 'silent! tabmove ' . tabpagenr()<CR>
 nnoremap <leader>1 :tabnext 1<cr>
 nnoremap <leader>2 :tabnext 2<cr>
 nnoremap <leader>3 :tabnext 3<cr>
 nnoremap <leader>4 :tabnext 4<cr>
 nnoremap <leader>5 :tabnext 5<cr>
+nnoremap <leader>6 :tabnext 6<cr>
+nnoremap <leader>7 :tabnext 7<cr>
+nnoremap <leader>8 :tabnext 8<cr>
+nnoremap <leader>9 :tabnext 9<cr>
 
 " custom statusline
 " help statusline
@@ -490,7 +497,7 @@ nnoremap j gj
 nnoremap k gk
 nnoremap <leader>, :w<CR>
 
-
 " whole page text-object
 vnoremap o :<C-U>normal ggVG<CR>
 onoremap o :normal ggVG<CR>
+
