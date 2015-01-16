@@ -83,7 +83,7 @@ nnoremap gm :call LivedownPreview()<CR>
 
 " replace similar words in once
 "  /\cgoodday
-"  :%SmartCase HelloWorld
+"  :%SmartCase "HelloWorld"
 Plugin 'SmartCase'
 
 
@@ -146,7 +146,7 @@ Plugin 'Syntastic'
 Plugin 'vim-ruby/vim-ruby'
 
 " Super complete plugin
-"Plugin 'Valloric/YouCompleteMe'
+Plugin 'Valloric/YouCompleteMe'
 " make YCM compatible with UltiSnips
 let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
 let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
@@ -196,7 +196,19 @@ vnoremap <Leader>a= :Tabularize /=<CR>
 nnoremap <Leader>a: :Tabularize /:\zs/l0l1<CR>
 vnoremap <Leader>a: :Tabularize /:\zs/l0l1<CR>
 
-"Plugin 'ervandew/supertab'
+
+" function MyTagContext()
+"   return "\<c-x>\<c-]>"
+" endfunction
+"
+" let g:SuperTabCompletionContexts =
+"       \ ['MyTagContext', 's:ContextText', 's:ContextDiscover']
+" let g:SuperTabContextTextOmniPrecedence = ['&omnifunc', '&completefunc']
+" let g:SuperTabContextDiscoverDiscovery =
+"      \ ["&completefunc:<c-x><c-u>", "&omnifunc:<c-x><c-o>", "&omnifunc:<c-x><c-k>"]
+"
+" Plugin 'ervandew/supertab'
+
 
 " aj around json
 " ij in json
@@ -495,7 +507,7 @@ nnoremap <leader>cp :let @+ = expand("%")<CR>
 
 nnoremap j gj
 nnoremap k gk
-nnoremap <leader>, :w<CR>
+nnoremap <leader>w :w<CR>
 
 " whole page text-object
 vnoremap o :<C-U>normal ggVG<CR>

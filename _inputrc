@@ -30,4 +30,9 @@ TAB: menu-complete
 "\e\e[A": history-search-backward
 "\e\e[B": history-search-forward
 
+# Option-up/option-down should also apply to insert mode
+"\C-p": history-search-backward
+"\C-n": history-search-forward
+
+
 
