@@ -267,7 +267,7 @@ set nobackup
 set tags+=./tags;/
 
 " Use ack instead of grep
-set grepprg=ack
+set grepprg=ack-grep
 
 " grep current word
 nnoremap <leader>g :grep <cword><CR>
@@ -314,8 +314,14 @@ nnoremap <leader>r 0v$:w! /tmp/vim.rb \| !irb /tmp/vim.rb<cr>
 " in vim version
 vnoremap <leader>r :w! /tmp/vim.rb \| !irb /tmp/vim.rb<cr>
 
+function! EnableRunVim()
+  nnoremap <leader>r 0v$:w! /tmp/vim.vim \| source /tmp/vim.vim<cr>
+  " in vim version
+  vnoremap <leader>r :w! /tmp/vim.vim \| source /tmp/vim.vim<cr>
+endfunction
+
 " Ctrl+u make work upcase in insert mode
-inoremap <c-u> <esc>viwUea
+inoremap <c-u> <esc>b~ea
 
 " make Ctrl+k to complete with dictionary
 " comment out to avoid :diagraphs conflict
