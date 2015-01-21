@@ -25,6 +25,8 @@ alias apush="git commit -a  &&  git push"
 
 alias wifi="sudo rmmod rtl8723be && sudo modprobe rtl8723be"
 
+alias rl="source $HOME/.bashrc"
+
 # git checkout branch
 function git-cb {
     # replace space to -
