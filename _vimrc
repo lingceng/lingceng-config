@@ -145,13 +145,13 @@ Plugin 'Syntastic'
 " ]M next method end
 Plugin 'vim-ruby/vim-ruby'
 
-" Super complete plugin
-Plugin 'Valloric/YouCompleteMe'
 " make YCM compatible with UltiSnips
 let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
 let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
 " list command
 let g:ycm_key_invoke_completion = ''
+" Super complete plugin
+Plugin 'Valloric/YouCompleteMe'
 
 " gc to make comment
 Plugin 'tomtom/tcomment_vim'
@@ -178,6 +178,8 @@ Plugin 'Wolfy87/vim-enmasse'
 " use <leader>gb to match and edit files
 Plugin 'pelodelfuego/vim-swoop'
 
+
+let g:tagbar_sort = 0
 Plugin 'majutsushi/tagbar'
 nnoremap <F8> :TagbarToggle<CR>
 
@@ -191,6 +193,8 @@ Plugin 'ecomba/vim-ruby-refactoring'
 " Plugin 'idbrii/AsyncCommand'
 
 Plugin 'godlygeek/tabular'
+nnoremap <Leader>a- :Tabularize /-<CR>
+vnoremap <Leader>a- :Tabularize /-<CR>
 nnoremap <Leader>a= :Tabularize /=<CR>
 vnoremap <Leader>a= :Tabularize /=<CR>
 nnoremap <Leader>a: :Tabularize /:\zs/l0l1<CR>
@@ -208,7 +212,7 @@ vnoremap <Leader>a: :Tabularize /:\zs/l0l1<CR>
 "      \ ["&completefunc:<c-x><c-u>", "&omnifunc:<c-x><c-o>", "&omnifunc:<c-x><c-k>"]
 "
 " Plugin 'ervandew/supertab'
-
+"
 
 " aj around json
 " ij in json
@@ -216,7 +220,7 @@ vnoremap <Leader>a: :Tabularize /:\zs/l0l1<CR>
 Plugin 'tpope/vim-jdaddy'
 
 " ,w ,e  ,b
-Plugin 'bkad/CamelCaseMotion'
+"Plugin 'bkad/CamelCaseMotion'
 
 " little change
 "Plugin 'tpope/vim-markdown'
@@ -512,4 +516,6 @@ nnoremap <leader>w :w<CR>
 " whole page text-object
 vnoremap o :<C-U>normal ggVG<CR>
 onoremap o :normal ggVG<CR>
+
+nnoremap <space> ciw
 

@@ -31,14 +31,6 @@ function git-cb {
     git checkout -b "${1// /-}"
 }
 
-# commit -> new branch -> rebase origin master ->  push
-function git-commit-rebase-push {
-    git commit -m "$1"
-    git checkout -b "${1// /-}"
-    git pull --rebase=true origin master
-    git push origin
-}
-
 function vga1400 {
     xrandr --newmode "1440x900"  106.50  1440 1528 1672 1904  900 903 909 934 -hsync +vsync
     xrandr --addmode VGA1 1440x900
@@ -74,10 +66,14 @@ export EDITOR=/usr/local/bin/vim
 export PATH=$PATH:$HOME/workspace/document/bin:$HOME/workspace/bing_dictionary
 
 # sync between the primary X/X11 clipboard and the Gnome/GTK clipboard
-#autocutsel &
+autocutsel &
 autocutsel -s PRIMARY &
 
 # Enable multi line histroy
+# http://unix.stackexchange.com/questions/109032/how-to-get-a-history-entry-to-properly-display-on-multiple-lines
 shopt -s cmdhist
-#shopt -s listhist
+shopt -s lithist
 
+function gpull {
+  git pull origin `parse_git_branch`
+}
