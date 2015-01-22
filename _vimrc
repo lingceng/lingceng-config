@@ -25,12 +25,25 @@ Plugin 'kien/ctrlp.vim'
 "
 Plugin 'tpope/vim-rails.git'
 
+" mark code in markdown
+nnoremap  <leader>` viw<esc>a`<esc>hbi`<esc>lel
 
-augroup markdown
-  autocmd! FileType markdown setlocal autoindent
-  autocmd! BufRead,BufNewFile *.md set filetype=markdown
-  autocmd! BufRead,BufNewFile *.mkd set filetype=markdown
-augroup END
+Plugin 'godlygeek/tabular'
+nnoremap <Leader>a- :Tabularize /-<CR>
+vnoremap <Leader>a- :Tabularize /-<CR>
+nnoremap <Leader>a= :Tabularize /=<CR>
+vnoremap <Leader>a= :Tabularize /=<CR>
+nnoremap <Leader>a: :Tabularize /:\zs/l0l1<CR>
+vnoremap <Leader>a: :Tabularize /:\zs/l0l1<CR>
+
+" Keep after tabular
+" Enable GitHub Flavored Markdown
+" https://help.github.com/articles/github-flavored-markdown/
+"let g:vim_markdown_folding_disabled=1
+"Plugin 'plasticboy/vim-markdown'
+
+" disable it because little change happened
+"Plugin 'tpope/vim-markdown'
 
 " snipMate Version
 " code snipe
@@ -192,15 +205,6 @@ Plugin 'ecomba/vim-ruby-refactoring'
 " need +clientserver
 " Plugin 'idbrii/AsyncCommand'
 
-Plugin 'godlygeek/tabular'
-nnoremap <Leader>a- :Tabularize /-<CR>
-vnoremap <Leader>a- :Tabularize /-<CR>
-nnoremap <Leader>a= :Tabularize /=<CR>
-vnoremap <Leader>a= :Tabularize /=<CR>
-nnoremap <Leader>a: :Tabularize /:\zs/l0l1<CR>
-vnoremap <Leader>a: :Tabularize /:\zs/l0l1<CR>
-
-
 " function MyTagContext()
 "   return "\<c-x>\<c-]>"
 " endfunction
@@ -221,10 +225,6 @@ Plugin 'tpope/vim-jdaddy'
 
 " ,w ,e  ,b
 "Plugin 'bkad/CamelCaseMotion'
-
-" little change
-"Plugin 'tpope/vim-markdown'
-
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -267,7 +267,7 @@ set nobackup
 set tags+=./tags;/
 
 " Use ack instead of grep
-set grepprg=ack-grep
+set grepprg=ack
 
 " grep current word
 nnoremap <leader>g :grep <cword><CR>
@@ -328,11 +328,8 @@ inoremap <c-u> <esc>b~ea
 "inoremap <c-k> <c-x><c-k>
 
 " vimrc edit and source
-nnoremap <leader>ev :tabe $MYVIMRC<cr>
+nnoremap <leader>ev :tab drop $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
-
-" mark code in markdown
-nnoremap  <leader>` viw<esc>a`<esc>hbi`<esc>lel
 
 " abbreviations
 " enc and hit the space
@@ -510,7 +507,6 @@ autocmd BufRead *.py set makeprg=python\ %
 " split hash
 vnoremap <leader>s :s/,/,\r/g<CR> \| :nohl<CR>
 
-autocmd FileType markdown setlocal autoindent
 
 " copy current file path to system clipboard
 nnoremap <leader>cp :let @+ = expand("%")<CR>
@@ -525,3 +521,12 @@ onoremap o :normal ggVG<CR>
 
 nnoremap <space> ciw
 
+" Edit work note
+nnoremap <leader>ew :tab drop ~/workspace/document/work_2014_7_7.mkd<CR>
+
+augroup markdown
+  autocmd! FileType markdown setlocal autoindent
+  autocmd! BufRead,BufNewFile *.md set filetype=markdown
+  autocmd! BufRead,BufNewFile *.mkd set filetype=markdown
+  autocmd! FileType markdown setlocal autoindent
+augroup END
