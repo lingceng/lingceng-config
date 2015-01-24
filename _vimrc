@@ -189,7 +189,7 @@ let g:sparkupNextMapping = '<c-y>'
 Plugin 'Wolfy87/vim-enmasse'
 
 " use <leader>gb to match and edit files
-Plugin 'pelodelfuego/vim-swoop'
+"Plugin 'pelodelfuego/vim-swoop'
 
 
 let g:tagbar_sort = 0
@@ -223,8 +223,16 @@ Plugin 'ecomba/vim-ruby-refactoring'
 " gqaj format
 Plugin 'tpope/vim-jdaddy'
 
+
 " ,w ,e  ,b
 "Plugin 'bkad/CamelCaseMotion'
+
+
+Plugin 'AndrewRadev/splitjoin.vim'
+
+let g:splitjoin_ruby_hanging_args = 0
+nmap sj :SplitjoinSplit<cr>
+nmap sk :SplitjoinJoin<cr>
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -308,11 +316,14 @@ inoremap jk <esc>
 " other is <c-c>
 " inoremap <esc> <nop>
 
-" run current line in ruby
-" | is chain to run command
-nnoremap <leader>r 0v$:w! /tmp/vim.rb \| !irb /tmp/vim.rb<cr>
-" in vim version
-vnoremap <leader>r :w! /tmp/vim.rb \| !irb /tmp/vim.rb<cr>
+function! EnableRunRuby()
+  " run current line in ruby
+  " | is chain to run command
+  nnoremap <leader>r 0v$:w! /tmp/vim.rb \| !irb /tmp/vim.rb<cr>
+  " in vim version
+  vnoremap <leader>r :w! /tmp/vim.rb \| !irb /tmp/vim.rb<cr>
+endfunction
+call EnableRunRuby()
 
 function! EnableRunVim()
   nnoremap <leader>r 0v$:w! /tmp/vim.vim \| source /tmp/vim.vim<cr>
