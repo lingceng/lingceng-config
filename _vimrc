@@ -164,7 +164,7 @@ let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
 " list command
 let g:ycm_key_invoke_completion = ''
 " Super complete plugin
-Plugin 'Valloric/YouCompleteMe'
+"Plugin 'Valloric/YouCompleteMe'
 
 " gc to make comment
 Plugin 'tomtom/tcomment_vim'
@@ -233,6 +233,9 @@ Plugin 'AndrewRadev/splitjoin.vim'
 let g:splitjoin_ruby_hanging_args = 0
 nmap sj :SplitjoinSplit<cr>
 nmap sk :SplitjoinJoin<cr>
+
+" This plug-in provides automatic closing of quotes, parenthesis, brackets, etc.
+Plugin 'Raimondi/delimitMate'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
