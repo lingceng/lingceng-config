@@ -237,6 +237,13 @@ nmap sk :SplitjoinJoin<cr>
 " This plug-in provides automatic closing of quotes, parenthesis, brackets, etc.
 Plugin 'Raimondi/delimitMate'
 
+" :PP: Pretty print. With no argument, acts as a REPL.
+" :Runtime: Reload runtime files. Like :runtime!, but it unlets any include guards first.
+Plugin 'tpope/vim-scriptease'
+
+" Plugin of potion lauguage
+Plugin 'lingceng/potion.vim'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 

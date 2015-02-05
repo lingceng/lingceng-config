@@ -67,10 +67,6 @@ export EDITOR=/usr/local/bin/vim
 
 export PATH=$PATH:$HOME/workspace/document/bin:$HOME/workspace/bing_dictionary
 
-# sync between the primary X/X11 clipboard and the Gnome/GTK clipboard
-autocutsel &
-autocutsel -s PRIMARY &
-
 # Enable multi line histroy
 # http://unix.stackexchange.com/questions/109032/how-to-get-a-history-entry-to-properly-display-on-multiple-lines
 shopt -s cmdhist
