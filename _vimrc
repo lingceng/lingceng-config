@@ -546,6 +546,9 @@ nnoremap <space> ciw
 " Edit work note
 nnoremap <leader>ew :tab drop ~/workspace/document/work_2014_7_7.mkd<CR>
 
+" sudo write
+nnoremap <leader>sw :w !sudo tee %<CR>
+
 augroup markdown
   autocmd! FileType markdown setlocal autoindent
   autocmd! BufRead,BufNewFile *.md set filetype=markdown
