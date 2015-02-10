@@ -92,6 +92,7 @@ Plugin 'bling/vim-airline'
 " livedown start account.mkd --open
 "
 Plugin 'shime/vim-livedown'
+" show markdown in browser
 nnoremap gm :call LivedownPreview()<CR>
 
 " replace similar words in once
@@ -243,6 +244,11 @@ Plugin 'tpope/vim-scriptease'
 
 " Plugin of potion lauguage
 Plugin 'lingceng/potion.vim'
+
+" Zeal docs
+" <leader>z search in current file type docset
+" <leader>Z manual set docset
+Plugin 'KabbAmine/zeavim.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -555,3 +561,11 @@ augroup markdown
   autocmd! BufRead,BufNewFile *.mkd set filetype=markdown
   autocmd! FileType markdown setlocal autoindent
 augroup END
+
+nnoremap <leader>de :!sensible-browser http://devdocs.io/\#q=<cword><CR>
+vnoremap <leader>de y:!sensible-browser http://devdocs.io/\#q=<c-r>"<CR>
+
+nnoremap <leader>dg :!sensible-browser http://www.google.com/\#q=<cword><CR>
+vnoremap <leader>dg y:!sensible-browser http://www.google.com/\#q=<c-r>"<CR>
+
+
