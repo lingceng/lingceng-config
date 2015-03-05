@@ -540,8 +540,8 @@ nnoremap <leader>cp :let @+ = expand("%")<CR>
 
 nnoremap j gj
 nnoremap k gk
-nnoremap <leader>w :w<CR>
-inoremap <leader>w <ESC>:w<CR>
+nnoremap <leader>w mp:w<CR>`p
+inoremap <leader>w <ESC>mp:w<CR>`p
 
 " whole page text-object
 vnoremap o :<C-U>normal ggVG<CR>
