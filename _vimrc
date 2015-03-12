@@ -177,10 +177,10 @@ let g:EasyMotion_smartcase = 1
 " <leader><leader> to trigger
 Plugin 'Lokaltog/vim-easymotion'
 
-map <Leader>l <Plug>(easymotion-lineforward)
-map <Leader>j <Plug>(easymotion-j)
-map <Leader>k <Plug>(easymotion-k)
-map <Leader>h <Plug>(easymotion-linebackward)
+map <Leader>ll <Plug>(easymotion-lineforward)
+map <Leader>jj <Plug>(easymotion-j)
+map <Leader>kk <Plug>(easymotion-k)
+map <Leader>hh <Plug>(easymotion-linebackward)
 
 
 Plugin 'tristen/vim-sparkup'
@@ -554,6 +554,9 @@ nnoremap <leader>ew :tab drop ~/workspace/document/work_2014_7_7.mkd<CR>
 
 " sudo write
 nnoremap <leader>sw :w !sudo tee %<CR>
+
+" Run test on current method
+nnoremap <leader>ra :execute "Rake ".line(".")<CR>
 
 augroup markdown
   autocmd! FileType markdown setlocal autoindent

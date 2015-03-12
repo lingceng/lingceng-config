@@ -10,39 +10,28 @@ alias ga='git add'
 alias gb='git branch'
 alias gc='git commit'
 alias gd='git diff'
-
-alias rs='rails server'
-alias rc='rails console'
-alias rs2='rails server --port=3002'
-alias rgm='rails generate migration'
-
-alias wg="bundle show"
-alias rdm="rake db:migrate  RAILS_ENV=development"
-alias rds="rake db:setup  RAILS_ENV=development"
-alias bi="bundle install"
-
+function gpull {
+  git pull origin `parse_git_branch`
+}
 alias apush="git commit -a  &&  git push"
 
-alias wifi="sudo rmmod rtl8723be && sudo modprobe rtl8723be"
+alias rs='bundle exec rails server'
+alias rc='bundle exec rails console'
+alias rs2='bundle exec rails server --port=3002'
+alias rgm='bundle exec rails generate migration'
+# show gems in this bundle
+alias bs="bundle show"
+alias rdm="bundle exec rake db:migrate  RAILS_ENV=development"
+alias rds="bundle exec rake db:setup  RAILS_ENV=development"
+alias bi="bundle install"
 
+alias wifi="sudo rmmod rtl8723be && sudo modprobe rtl8723be"
 alias rl="source $HOME/.bashrc"
 
 # git checkout branch
 function git-cb {
     # replace space to -
     git checkout -b "${1// /-}"
-}
-
-function vga1400 {
-    xrandr --newmode "1440x900"  106.50  1440 1528 1672 1904  900 903 909 934 -hsync +vsync
-    xrandr --addmode VGA1 1440x900
-    xrandr --output VGA1 --mode 1440x900
-}
-
-function vga1920 {
-    xrandr --newmode "1920x1080_60.00"  173.00  1920 2048 2248 2576  1080 1083 1088 1120 -hsync +vsync
-    xrandr --addmode VGA1 1920x1080_60.00
-    xrandr --output VGA1 --mode 1920x1080_60.00
 }
 
 # git prompt
@@ -55,16 +44,13 @@ function elite {
   local BLUE="\[\033[0;34m\]"
   local PURPLE="\[\033[0;35m\]"
   local NO_COLOUR="\[\033[0m\]"
-
   PS1="$GREEN\u$NO_COLOUR at \
 $YELLOW\h$NO_COLOUR using $BLUE\$(ruby -e 'print RUBY_VERSION')$NO_COLOUR \
 in $GREEN\w$NO_COLOUR on $PURPLE\$(parse_git_branch)$NO_COLOUR$GREEN!$NO_COLOUR\n± "
 }
 elite
 
-
 export EDITOR=/usr/local/bin/vim
-
 export PATH=$PATH:$HOME/workspace/document/bin:$HOME/workspace/bing_dictionary
 
 # Enable multi line histroy
@@ -72,6 +58,3 @@ export PATH=$PATH:$HOME/workspace/document/bin:$HOME/workspace/bing_dictionary
 shopt -s cmdhist
 shopt -s lithist
 
-function gpull {
-  git pull origin `parse_git_branch`
-}
