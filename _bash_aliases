@@ -28,6 +28,8 @@ alias bi="bundle install"
 alias wifi="sudo rmmod rtl8723be && sudo modprobe rtl8723be"
 alias rl="source $HOME/.bashrc"
 
+alias m="meteor"
+
 # git checkout branch
 function git-cb {
     # replace space to -
@@ -35,9 +37,25 @@ function git-cb {
 }
 
 # git prompt
-function parse_git_branch {
-  git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ \1/'
+# function parse_git_branch {
+#   git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ \1/'
+# }
+function parse_git_deleted {
+  [[ $(git status 2> /dev/null | grep deleted:) != "" ]] && echo "-"
 }
+function parse_git_added {
+  [[ $(git status 2> /dev/null | grep "Untracked files:") != "" ]] && echo '+'
+}
+function parse_git_modified {
+  [[ $(git status 2> /dev/null | grep modified:) != "" ]] && echo "*"
+}
+function parse_git_dirty {
+  echo "$(parse_git_added)$(parse_git_modified)$(parse_git_deleted)"
+}
+function parse_git_branch {
+  git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/\1$(parse_git_dirty)/"
+}
+
 function elite {
   local GREEN="\[\033[0;32m\]"
   local YELLOW="\[\033[0;33m\]"
@@ -46,7 +64,7 @@ function elite {
   local NO_COLOUR="\[\033[0m\]"
   PS1="$GREEN\u$NO_COLOUR at \
 $YELLOW\h$NO_COLOUR using $BLUE\$(ruby -e 'print RUBY_VERSION')$NO_COLOUR \
-in $GREEN\w$NO_COLOUR on $PURPLE\$(parse_git_branch)$NO_COLOUR$GREEN!$NO_COLOUR\n± "
+in $GREEN\w$NO_COLOUR on $PURPLE\$(parse_git_branch)$NO_COLOUR$GREEN!$NO_COLOUR\n> "
 }
 elite
 

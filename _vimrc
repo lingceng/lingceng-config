@@ -29,6 +29,8 @@ Plugin 'tpope/vim-rails.git'
 nnoremap  <leader>` viw<esc>a`<esc>hbi`<esc>lel
 
 Plugin 'godlygeek/tabular'
+nnoremap <Leader>a\| :Tabularize /\|<CR>
+vnoremap <Leader>a\| :Tabularize /\|<CR>
 nnoremap <Leader>a- :Tabularize /-<CR>
 vnoremap <Leader>a- :Tabularize /-<CR>
 nnoremap <Leader>a= :Tabularize /=<CR>
@@ -250,6 +252,9 @@ Plugin 'lingceng/potion.vim'
 " <leader>Z manual set docset
 Plugin 'KabbAmine/zeavim.vim'
 
+" :Quickrun ruby
+Plugin 'thinca/vim-quickrun'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 
@@ -339,7 +344,7 @@ function! EnableRunRuby()
   " in vim version
   vnoremap <leader>r :w! /tmp/vim.rb \| !irb /tmp/vim.rb<cr>
 endfunction
-call EnableRunRuby()
+"call EnableRunRuby()
 
 function! EnableRunVim()
   nnoremap <leader>r 0v$:w! /tmp/vim.vim \| source /tmp/vim.vim<cr>
