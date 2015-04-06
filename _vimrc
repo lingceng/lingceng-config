@@ -255,6 +255,23 @@ Plugin 'KabbAmine/zeavim.vim'
 " :Quickrun ruby
 Plugin 'thinca/vim-quickrun'
 
+Plugin 'elixir-lang/vim-elixir'
+
+" Highlight color
+Plugin 'ap/vim-css-color'
+
+" Color picker
+" Need sudo apt-get install zenity
+" :VCoolor
+let g:vcoolor_map = '<leader>ce'
+Plugin 'KabbAmine/vCoolor.vim'
+
+" Mappings work only in vim command line.
+Plugin 'bruno-/vim-husk'
+
+"Plugin 'Rykka/colorv.vim'
+
+" ENDOFVUNDLE
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 
@@ -324,11 +341,8 @@ set dictionary+=~/.vim/dict/*.10
 nnoremap <leader>e y$:!<c-r>"
 vnoremap <leader>e y:!<c-r>"
 
-" copy to clipboard
-" ^ first non-blank character
-nnoremap <leader>y "+y$
-vnoremap <leader>y "+y
-nnoremap <leader>p "+p
+" copy or paste with system clipboard
+set clipboard=unnamedplus
 
 " map ESC
 " defautl is normal map
@@ -490,6 +504,8 @@ runtime macros/matchit.vim
 " Set Ex command history
 set history=200
 
+set showcmd
+
 " List autocomplete menu
 " Use <C-d> to list all available
 set wildmenu
@@ -500,9 +516,11 @@ cnoremap <C-p> <Up>
 cnoremap <C-n> <Down>
 
 " Generate tags
-noremap <C-F5> :!ctags -R<CR>
 " Find tag example
 " :tags compute_lease
+noremap <C-F5> :!ctags -R<CR>
+
+noremap <F5> :e %<CR>
 
 " complete with tag
 inoremap <C-]> <C-x><C-]>
@@ -552,7 +570,7 @@ inoremap <leader>w <ESC>mp:w<CR>`p
 vnoremap o :<C-U>normal ggVG<CR>
 onoremap o :normal ggVG<CR>
 
-nnoremap <space> ciw
+"nnoremap <space> ciw
 
 " Edit work note
 nnoremap <leader>ew :tab drop ~/workspace/document/work_2014_7_7.mkd<CR>

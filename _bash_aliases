@@ -15,14 +15,15 @@ function gpull {
 }
 alias apush="git commit -a  &&  git push"
 
-alias rs='bundle exec rails server'
-alias rc='bundle exec rails console'
-alias rs2='bundle exec rails server --port=3002'
-alias rgm='bundle exec rails generate migration'
+alias rs='bin/rails server'
+alias rc='bin/rails console'
+alias rs2='bin/rails server --port=3002'
+alias rgm='bin/rails generate migration'
 # show gems in this bundle
 alias bs="bundle show"
-alias rdm="bundle exec rake db:migrate  RAILS_ENV=development"
-alias rds="bundle exec rake db:setup  RAILS_ENV=development"
+alias rdm="bin/rake db:migrate  RAILS_ENV=development"
+alias rdr="bin/rake db:rollback  RAILS_ENV=development"
+alias rds="bin/rake db:setup  RAILS_ENV=development"
 alias bi="bundle install"
 
 alias wifi="sudo rmmod rtl8723be && sudo modprobe rtl8723be"
