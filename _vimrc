@@ -265,11 +265,13 @@ Plugin 'ap/vim-css-color'
 " :VCoolor
 let g:vcoolor_map = '<leader>ce'
 Plugin 'KabbAmine/vCoolor.vim'
+"Plugin 'Rykka/colorv.vim'
 
 " Mappings work only in vim command line.
 Plugin 'bruno-/vim-husk'
 
-"Plugin 'Rykka/colorv.vim'
+Plugin 'szw/vim-maximizer'
+nnoremap <silent><C-w>o :MaximizerToggle<CR>
 
 " ENDOFVUNDLE
 " All of your Plugins must be added before the following line
@@ -358,7 +360,7 @@ function! EnableRunRuby()
   " in vim version
   vnoremap <leader>r :w! /tmp/vim.rb \| !irb /tmp/vim.rb<cr>
 endfunction
-"call EnableRunRuby()
+call EnableRunRuby()
 
 function! EnableRunVim()
   nnoremap <leader>r 0v$:w! /tmp/vim.vim \| source /tmp/vim.vim<cr>
