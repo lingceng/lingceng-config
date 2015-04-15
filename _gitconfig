@@ -15,7 +15,7 @@
   brename = branch -m
   pr = pull --rebase=true origin master
 [core]
-  editor = vim
+  editor = vi
   excludesfile = ~/.gitignore_global
 [color]
   ui = true

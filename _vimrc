@@ -106,8 +106,8 @@ Plugin 'SmartCase'
 " git handle
 " Gedit edit file in index
 " Gdiff compare with index
-Plugin 'fugitive.vim'
-cnoreabbrev gs  Gstatus
+Plugin 'tpope/vim-fugitive'
+nnoremap <leader>gs  :Gstatus<CR>
 
 " Want to turn fooBar into foo_bar? Press crs (coerce to snake_case).
 "
@@ -129,7 +129,6 @@ Plugin 'surround.vim'
 
 " TabooRename {name}
 " Renames the current tab with the name provided.
-cnoreabbrev tr  TabooRename
 set sessionoptions+=tabpages,globals
 Plugin 'gcmt/taboo.vim'
 
@@ -171,6 +170,7 @@ let g:ycm_key_invoke_completion = ''
 
 " gc to make comment
 Plugin 'tomtom/tcomment_vim'
+
 
 
 let g:EasyMotion_startofline = 0 " keep cursor colum when JK motion
@@ -322,8 +322,14 @@ nnoremap <leader>g :grep <cword><CR>
 " use // to search selected content
 vnoremap // y/<c-r>"<cr>
 
-nnoremap <leader>d :!dict <cword><CR>
-vnoremap <leader>d y:!dict <c-r>"<CR>
+if has('nvim')
+  nnoremap <leader>d :botright 14split \| term dict <cword><CR>
+  vnoremap <leader>d y:botright 14split \| term dict <c-r>"<CR>
+else
+  nnoremap <leader>d :!dict <cword><CR>
+  vnoremap <leader>d y:!dict <c-r>"<CR>
+end
+
 
 " for ruby syntax of minitest
 " i_CTRL-X_CTRL-U to trigger in ruby file
@@ -343,8 +349,9 @@ set dictionary+=~/.vim/dict/*.10
 nnoremap <leader>e y$:!<c-r>"
 vnoremap <leader>e y:!<c-r>"
 
-" copy or paste with system clipboard
-set clipboard=unnamedplus
+nnoremap <leader>y "+y$
+vnoremap <leader>y "+y
+nnoremap <leader>p "+p
 
 " map ESC
 " defautl is normal map
@@ -401,7 +408,7 @@ set listchars=tab:>.,trail:.,extends:#,nbsp:.
 nnoremap <leader>n :NERDTree<cr>
 " find current file in NERDTree
 nnoremap <leader>f :NERDTreeFind<cr>
-cnoreabbrev nc :NERDTreeClose<cr>
+nnoremap <leader>nc :NERDTreeClose<cr>
 
 " user alt-left to move tab left
 " user alt-right to move tab right
@@ -577,6 +584,8 @@ onoremap o :normal ggVG<CR>
 " Edit work note
 nnoremap <leader>ew :tab drop ~/workspace/document/work_2014_7_7.mkd<CR>
 
+" Edit todo
+nnoremap <leader>et :tab drop ~/workspace/document/TODOS.mkd<CR>
 " sudo write
 nnoremap <leader>sw :w !sudo tee %<CR>
 
@@ -595,5 +604,14 @@ vnoremap <leader>de y:!sensible-browser http://devdocs.io/\#q=<c-r>"<CR>
 
 nnoremap <leader>dg :!sensible-browser http://www.google.com/\#q=<cword><CR>
 vnoremap <leader>dg y:!sensible-browser http://www.google.com/\#q=<c-r>"<CR>
+
+if has('nvim')
+  " neovim termminal mapping
+  tnoremap <c-j> <C-\><C-n>
+
+  " copy or paste with system clipboard
+  " will cause some problem.
+  set clipboard=unnamedplus
+end
 
 

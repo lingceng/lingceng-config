@@ -31,6 +31,9 @@ alias rl="source $HOME/.bashrc"
 
 alias m="meteor"
 
+alias j="ssh jumpbox"
+alias j2="ssh jumpbox2"
+
 # git checkout branch
 function git-cb {
     # replace space to -
