@@ -24,6 +24,7 @@ alias bs="bundle show"
 alias rdm="bin/rake db:migrate  RAILS_ENV=development"
 alias rdr="bin/rake db:rollback  RAILS_ENV=development"
 alias rds="bin/rake db:setup  RAILS_ENV=development"
+alias tu="bin/rake test:units"
 alias bi="bundle install"
 
 alias wifi="sudo rmmod rtl8723be && sudo modprobe rtl8723be"
@@ -40,10 +41,6 @@ function git-cb {
     git checkout -b "${1// /-}"
 }
 
-# git prompt
-# function parse_git_branch {
-#   git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ \1/'
-# }
 function parse_git_deleted {
   [[ $(git status 2> /dev/null | grep deleted:) != "" ]] && echo "-"
 }
@@ -66,9 +63,10 @@ function elite {
   local BLUE="\[\033[0;34m\]"
   local PURPLE="\[\033[0;35m\]"
   local NO_COLOUR="\[\033[0m\]"
-  PS1="$GREEN\u$NO_COLOUR at \
-$YELLOW\h$NO_COLOUR using $BLUE\$(ruby -e 'print RUBY_VERSION')$NO_COLOUR \
-in $GREEN\w$NO_COLOUR on $PURPLE\$(parse_git_branch)$NO_COLOUR$GREEN!$NO_COLOUR\n> "
+  local s1="┌──Using ruby $BLUE\$(ruby -e 'print RUBY_VERSION')$NO_COLOUR at $GREEN\w$NO_COLOUR"
+  local s2=" on branch $PURPLE\$(parse_git_branch)$NO_COLOUR\n"
+  local s3="└──➤ "
+  PS1=$s1$s2$s3
 }
 elite
 
