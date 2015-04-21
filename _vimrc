@@ -70,7 +70,7 @@ let g:UltiSnipsEditSplit="vertical"
 nnoremap <leader>ls <ESC>:call UltiSnips#ListSnippets()<CR>
 
 " tree navigate
-Plugin 'The-NERD-tree'
+Plugin 'scrooloose/nerdtree'
 " Use <C-b> to toggle bookmark
 " always show bookmarks
 "let g:NERDTreeShowBookmarks = 1
@@ -86,6 +86,7 @@ Plugin 'airblade/vim-gitgutter'
 set laststatus=2
 " force vim automatic detection of terminal colors
 set t_Co=256
+let g:airline_powerline_fonts = 1
 Plugin 'bling/vim-airline'
 
 " npm install -g livedown
@@ -271,7 +272,14 @@ Plugin 'KabbAmine/vCoolor.vim'
 Plugin 'bruno-/vim-husk'
 
 Plugin 'szw/vim-maximizer'
-nnoremap <silent><C-w>o :MaximizerToggle<CR>
+"nnoremap <silent><C-w>o :MaximizerToggle<CR>
+
+Plugin 'ryanoasis/vim-webdevicons'
+
+" Automatically change pwd to current root
+" <Leader>cd to manually invoke vim-rooter
+Plugin 'airblade/vim-rooter'
+let g:rooter_silent_chdir = 1
 
 " ENDOFVUNDLE
 " All of your Plugins must be added before the following line
@@ -450,9 +458,6 @@ set textwidth=80
 set colorcolumn=+1
 hi ColorColumn ctermbg=darkgray
 
-" local cd to current folder
-nnoremap <leader>cd :lcd %:p:h<cr>
-
 " past in nextline
 " :pu<cr>
 
@@ -528,6 +533,7 @@ cnoremap <C-n> <Down>
 " Find tag example
 " :tags compute_lease
 noremap <C-F5> :!ctags -R<CR>
+noremap <leader>rt :!ctags -R<CR>
 
 noremap <F5> :e %<CR>
 
@@ -613,5 +619,4 @@ if has('nvim')
   " will cause some problem.
   set clipboard=unnamedplus
 end
-
 
