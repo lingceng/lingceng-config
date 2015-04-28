@@ -34,6 +34,7 @@ alias m="meteor"
 
 alias j="ssh jumpbox"
 alias j2="ssh jumpbox2"
+alias t="tmux -2"
 
 # git checkout branch
 function git-cb {

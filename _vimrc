@@ -18,6 +18,12 @@ Plugin 'gmarik/Vundle.vim'
 " F5 to refresh in search window
 Plugin 'kien/ctrlp.vim'
 "let g:ctrlp_cmd = 'CtrlPMRU'
+let g:ctrlp_cache_dir = $HOME . '/.cache/ctrlp'
+if executable('ag')
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+endif
+
+
 
 " :find user
 " :Rcontroller
@@ -146,6 +152,7 @@ Plugin 'tpope/vim-bundler'
 
 " better than grep for code
 Plugin 'ack.vim'
+let g:ackprg = 'ag --nogroup --nocolor --column'
 
 " syntax check
 let g:syntastic_ignore_files = ['\m.*application.css.scss']
@@ -281,6 +288,9 @@ Plugin 'ryanoasis/vim-webdevicons'
 Plugin 'airblade/vim-rooter'
 let g:rooter_silent_chdir = 1
 
+" react jsx syntax highlight
+Plugin 'mxw/vim-jsx'
+
 " ENDOFVUNDLE
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -323,7 +333,7 @@ set nobackup
 set tags+=./tags;/
 
 " Use ack instead of grep
-set grepprg=ack
+set grepprg=ag
 
 " grep current word
 nnoremap <leader>g :grep <cword><CR>
@@ -532,8 +542,8 @@ cnoremap <C-n> <Down>
 " Generate tags
 " Find tag example
 " :tags compute_lease
-noremap <C-F5> :!ctags -R<CR>
-noremap <leader>rt :!ctags -R<CR>
+noremap <C-F5> :!ctags -R --exclude=*.js<CR>
+noremap <leader>rt :!ctags -R --exclude='*.js'<CR>
 
 noremap <F5> :e %<CR>
 
